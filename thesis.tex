@@ -19,8 +19,8 @@
 %--------------------------------------------------------------------------
 
 
-\documentclass[oneside,a4paper,12pt]{book}
-\usepackage{copyrightbox}
+\documentclass[oneside,a4paper,12pt,table]{book}
+
 %\usepackage{minipage-marginpar}
 
 \usepackage[inline]{enumitem}
@@ -37,11 +37,21 @@
 \newlist{iteminline}{itemize*}{1}
 \setlist[iteminline]{label=$\bullet$}
 
+
 \input{styles/common.tex}
 \input{styles/custom.tex}
-\newcommand{\urlTiny}[1]{\scriptsize\url{#1}}
+
+
+
+
+\newcommand{\urlSource}[1]{\lr{\scriptsize{source: \url{#1}}}}
+\newcommand{\doiSource}[1]{\lr{\scriptsize{source: \doi{#1}}}}
+\newcommand{\Doi}[1]{\lr{\doi{#1}}}
 \newcommand{\mri}{\lr{ MRI}}
+\newcommand{\mr}{\lr{ MR}}
 \newcommand{\nmr}{\lr{ NMR}}
+\newcommand{\f}[2]{$\frac{#1}{#2}$}
+\newcommand{\PE}[3]{${}_{#2}^{#3}\mathbb{#1}$}
 
 \begin{document}
 
@@ -105,7 +115,7 @@
 
 
 \newgeometry{left=3cm,right=2.5cm}
-
+\printindex
 %\input{front/dictionary}
 %\input{front/abstract-eng.tex}
 %\input{front/template/title-eng.tex}
