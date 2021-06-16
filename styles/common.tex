@@ -8,16 +8,15 @@
 \usepackage{amssymb,amsmath}
 \usepackage[colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage{copyrightbox,doi}
-\usepackage{tabularx,multirow,multicol}
 \usepackage[usenames,dvipsnames]{pstricks}
 \usepackage{graphicx,subfigure,wrapfig}
 \usepackage{geometry,fancyhdr}
 \usepackage[mathscr]{euscript}
 \usepackage[version=4]{mhchem}
 \usepackage{xurl}
-\usepackage{multicol}
-\usepackage{array}
+\usepackage{tabularx,multirow,multicol,array}
 \newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \definecolor{headerColor}{rgb}{0.78,0.85,.95}
 
 
@@ -42,7 +41,7 @@
 \rhead{\leftmark}
 \lhead{\thepage}
 
-
+\usepackage[bottom]{footmisc}
 % -------------------- Fonts --------------------
 
 \settextfont[
