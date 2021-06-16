@@ -20,6 +20,15 @@
 
 
 \documentclass[oneside,a4paper,12pt,table]{book}
+%\usepackage[bottom]{footmisc}
+%\usepackage{stfloats}
+%\fnbelowfloat % puts footnotes below the bottom floats
+%\makeatletter
+%\renewcommand{\fps@figure}{htp}
+%\renewcommand{\fps@table}{htp}
+%\makeatother
+\toks0{\ifvoid\footins\else\suppressfloats[b]\fi} 
+\output\expandafter{\the\toks0\the\output}
 
 %\usepackage{minipage-marginpar}
 
@@ -52,7 +61,9 @@
 \newcommand{\nmr}{\lr{ NMR}}
 \newcommand{\f}[2]{$\frac{#1}{#2}$}
 \newcommand{\PE}[3]{${}_{#2}^{#3}\mathbb{#1}$}
+\newcommand{\rltext}[1]{\text{\rl{#1}}}
 
+\usepackage[bottom]{footmisc}
 \begin{document}
 
 

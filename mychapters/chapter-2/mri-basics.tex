@@ -48,21 +48,21 @@
 %	\centering
 	\subfigure[تصویر پاول لاتربور]{
 		\copyrightbox[b]{
-		\includegraphics[height=0.36\linewidth]{figs/lauterbur-13686-content-portrait-mobile-tiny}
+		\includegraphics[height=0.36\linewidth]{mychapters/chapter-2/figs/lauterbur-13686-content-portrait-mobile-tiny}
 		}{\urlSource{https://is.gd/HgbMvo}}
 		\label{subfig:paullauterbur}
 	}
 	\hspace{0.1\linewidth}
 	\subfigure[تصویر هرمن کار]{
 		\copyrightbox[b]{
-		\includegraphics[height=0.36\linewidth]{figs/herman_carr}
+		\includegraphics[height=0.36\linewidth]{mychapters/chapter-2/figs/herman_carr}
 		}{\urlSource{https://is.gd/teAHxS}}
 		\label{subfig:herman-carr}
 	}
 	\hspace{0.1\linewidth}
 	\subfigure[تصویر Peter-Mansfield]{
 		\copyrightbox[b]{
-			\includegraphics[height=0.36\linewidth]{figs/Peter-Mansfield}
+			\includegraphics[height=0.36\linewidth]{mychapters/chapter-2/figs/Peter-Mansfield}
 		}{\urlSource{https://is.gd/W7AXIL}}
 		\label{subfig:Peter-Mansfield}
 	}
@@ -81,7 +81,7 @@
 
 \begin{figure}
 	\centering
-	\copyrightbox[b]{\includegraphics[width=0.6\linewidth]{figs/Damadian_invention}}
+	\copyrightbox[b]{\includegraphics[width=0.6\linewidth]{mychapters/chapter-2/figs/Damadian_invention}}
 	{\urlSource{https://w.wiki/3STS}}
 	\caption{تصویری از آرشیو اداره ثبت اختراعات آمریکا که متعلق به ریموند دامادیان، دانشمند آمریکایی و یکی از مخترعین سیستم‌های نوین ام آر آی}
 	\label{fig:Damadian_invention}
@@ -91,7 +91,7 @@
 \subsection{بررسی مفهوم اسپین}
  
 
-ساختار یک اتم، یک از اجزای اساسی در آزمایشات تشدید مغناطیسی است. اتم ها از سه ذره اصلی 
+ساختار یک اتم، یکی از اجزای اساسی در آزمایشات تشدید مغناطیسی است. اتم ها از سه ذره اصلی 
 \LTRfootnote{Fundamental Particles}
 تشکیلی شده اند:
 \begin{enuminline}
@@ -113,13 +113,13 @@
 	\centering
 	\subfigure[اسپین]{		
 		\copyrightbox[b]{
-			\includegraphics[height=0.3\linewidth]{figs/one-spin}
+			\includegraphics[height=0.3\linewidth]{mychapters/chapter-2/figs/one-spin}
 		}{\scriptsize\Doi{10.1002/9781119013068}}
 		\label{fig:one-spin}}
 		\hspace{0.2\linewidth}
 	\subfigure[مغناطیس]{
 		\copyrightbox[b]{
-			\includegraphics[height=0.3\linewidth]{figs/one-magnet}
+			\includegraphics[height=0.3\linewidth]{mychapters/chapter-2/figs/one-magnet}
 		}{\scriptsize\Doi{10.1002/9781119013068}}
 		\label{fig:one-magnet}}
 	\caption{} 
@@ -140,11 +140,31 @@
 \LTRfootnote{Cerium}
 حداقل یک ایزوتوپ دارند که حرکت اسپینی دارد. از آنجا که این حرکت نقش مهمی در اصول تصویربرداری \mri دارد، بنابراین تقریبا تمامی عناصر قابلیت مشاهده شدن در تصویربرداری \mri را دارند. اسپین یکی از خواص کوانتومی هسته است و تعداد محدودی اسپین در طبیعت وجود دارند. 
 
+\begin{table}[b]
+	\centering
+	\begin{tabular}{|C{5em}|C{5em}||C{14em}|}
+		\hline \rowcolor{headerColor}
+		
+		عدد اتمی & جرم اتمی & عدد اسپین
+		\\\hline\hline
+		زوج & زوج & صفر \\\hline
+		فرد & زوج & عدد صحیح \\\hline
+		فرد & 
+		\multirow{2}{*}{فرد}
+		 & 
+		\multirow{2}{*}{عدد صحیح و نصفی}
+		\\\cline{0-0}
+		زوج &  &
+		\\\hline
+	\end{tabular}
+	\caption{بررسی عدد اسپین نسبت به عدد اتمی و جرم اتمی }
+	\label{table:spin-even-odd}
+\end{table}
 
 \begin{table}[b]
 	\centering
-	\begin{tabular}{|c|c||C{10em}|}
-		\hline \rowcolor{lightgray}
+	\begin{tabular}{|C{5em}|C{5em}||C{14em}|}
+		\hline \rowcolor{headerColor}
 		
 		تعداد پروتون & تعداد نوترون & عدد اسپین
 		\\\hline\hline
@@ -157,13 +177,15 @@
 		\\\hline
 	\end{tabular}
 	\caption{بررسی عدد اسپین نسبت به تعداد پروتون‌ها و تعداد نوترون ها }
-	\label{table:spin-even-odd}
+	\label{table:spin-even-odd-pn}
 \end{table}
 
 اسپین که با نماد $I$ و یا $\Phi$ نمایش می‌دهند، مقدایر کوانتیده‌ای به خود می‌گیرد به طوری که می‌تواند صفر یا یک عدد صحیح (مثل $1$و $2$و $3$و ...) و یا یک عدد صحیح و نصفی (مثل $0.5$و $1.5$و $2.5$ و ...) باشد. 
 بنابر \cite{book:basic-principles-and-applications}، می‌توان جدول 
 \ref{table:spin-even-odd}
-را استخراج نمود. درحقیقت اتم‌هایی با عدد اتمی یا جرم اتمی فرد دارای اسپین هستند و اگر هردو زوج باشند، نمی‌توان آن‌ها را در تصویربرداری \mri مطالعه نمود. 
+را استخراج نمود که آن را می‌توان به شیوه جدول \ref{table:spin-even-odd-pn}
+برحسب تعداد پروتون ها و نوترون ها به خاطر سپرد.
+درحقیقت اتم‌هایی با عدد اتمی یا جرم اتمی فرد دارای اسپین هستند و اگر هردو زوج باشند، نمی‌توان آن‌ها را در تصویربرداری \mri مطالعه نمود. 
 
 در تصویر برداری \mri ما برروی هسته‌هایی متمرکز هستیم که اسپین آن‌ها \f12 است. به‌طور خاص  در تصویربرداری \mri، هسته اتم هیدروژن
 \ce{^1_1H}
@@ -188,7 +210,7 @@
 بدن هر‌انسان به طور میانگین، از 60 درصد آب تشکیل شده است. همچنین برخی ارگان های بدن حتی تا 90 درصد از آب ساخته شده‌اند. مغز و قلب انسان 73 درصد آب، ریه ها 83 درصد، پوست 64 درصد، ماهیچه‌ها و کلیه‌ها 79 درصد و استخوان ها 31 درصد آب را شامل می‌شوند.\cite{science-water-you-water-and-human-body}
 از این رو، اتم هیدروژن نقش تعیین کننده ای دارد. دقت نیز داریم که اتم اکسیژن \ce{^16_8O} اسپینی ندارد و بنابراین نقشی در تصویربرداری \mri ندارد. از آنجایی که آب در بافت های نرم به میزان بیشتری وجود دارد، این نوع تصویر برداری عموما برای تصویربرداری از نواحی دارای بافت نرم مانند مغز مورد استفاده قرار می‌گیرد.
 
-از آنجایی که درون هسته مشکل از پروتون هاست، بارالکتریکی هسته مثبت است. از این رو، در صورت حرکت دورانی حول محور دوران خود، یک میدان مغناطیسی هم‌راستا با همان محور دوران، ایجاد می‌کند. جون‌که مقدار اندازه اسپین هسته یک مقدار ثابت است این میدان مغناطیسی نیز اندازه ثابتی دارد. بنابراین برای ممان مغناطیسی هسته
+از آنجایی که درون هسته متشکل از پروتون هاست، بارالکتریکی هسته مثبت است. از این رو، در صورت حرکت دورانی حول محور دوران خود، یک میدان مغناطیسی هم‌راستا با همان محور دوران، ایجاد می‌کند. جون‌که مقدار اندازه اسپین هسته یک مقدار ثابت است این میدان مغناطیسی نیز اندازه ثابتی دارد. بنابراین برای ممان مغناطیسی هسته
 \LTRfootnote{Nuclear Magnetic Moment} 
 دو مولفه‌ی مقدار و جهت میدان مغناطیسی می‌توان تعریف کرد. به عبارت دیگر یک هسته دارای اسپین را می‌توان به صورت یک آهن‌ربای میکروسکوپیک ریز درنظر گرفت
 (شکل \ref{fig:one-magnet}).
@@ -212,7 +234,7 @@
 \begin{figure}[t]
 	\centering
 	\copyrightbox[b]{
-		\includegraphics[width=0.5\linewidth]{figs/balance-spin}
+		\includegraphics[width=0.5\linewidth]{mychapters/chapter-2/figs/balance-spin}
 	}{\scriptsize\Doi{10.1002/9781119013068}}
 	\caption{}
 	\label{fig:balance-spin}
@@ -247,7 +269,7 @@
 	\centering	
 	\subfigure[]{
 	\copyrightbox[b]{
-		\includegraphics[height=0.35\linewidth]{figs/B-spin}	
+		\includegraphics[height=0.35\linewidth]{mychapters/chapter-2/figs/B-spin}	
 		\label{subfig:precession-spin}
 	}{\scriptsize\Doi{10.1002/9781119013068}}}
 	\hspace{0.1\linewidth}
@@ -261,26 +283,90 @@
 
 \end{figure}
 
-هنگامی که پورتون دارای اسپین در داخل یک میدان مغناطیسی قوی 
+\subsubsection{پروتون‌ها در یک میدان مغناطیسی خارجی}
+
+
+هنگامی که پورتون دارای اسپین در داخل یک \textit{میدان مغناطیسی قوی }
 \RTLfootnote{
 هنگامی که از میدان مغناطیسی قوی صحبت می‌کنیم منظور چیزی حدود حداقل $1$ تسلا یا $10000$ گاوس است. 
 }
-خارجی $B_0$ قرار می‌گیرند، اولا ممان های مغناطیسی اتم ها تمایل پیدا می‌کنند که در راستای یا خلاف راستای 
+خارجی $B_0$ قرار می‌گیرند، اولا ممان های مغناطیسی اتم ها تمایل پیدا می‌کنند که در \textit{راستای} یا \textit{خلاف راستای} 
 \LTRfootnote{Parallel or Anti-parallel}
-قرار بگیرند (شکل \ref{subfig:alineamiento-yes} و ثانیا وادار می‌شوند که حرکت چرخشی حول راستای میدان مغناطیسی خارجی داشته باشند که به این پدیده حرکت تقدیمی
+قرار بگیرند (شکل \ref{subfig:alineamiento-yes} و ثانیا وادار می‌شوند که حرکت چرخشی حول راستای میدان مغناطیسی خارجی داشته باشند که به این پدیده \textbf{حرکت تقدیمی}
 \LTRfootnote{Precession}
 می‌گویند. 
+
+\begin{figure}
+	\centering\copyrightbox[b]{
+		\includegraphics[width=0.6\linewidth]{mychapters/chapter-2/figs/zeeman-diagram}
+	}{\scriptsize\Doi{10.1002/9781119013068}}
+	\caption{}
+	\label{fig:zeeman-diagram}
+\end{figure}
+
+
+همانطور که اشاره شد در اثر یک میدان مغناطیسی خارجی $B_0$ تمایل پیدا می‌کنند که ممان‌های مغناطیسی خود را در راستا یا خلاف راستای آن میدان قرار دهند. آنانی که در راستای آن میدان قرار داشته باشند انرژی کمتر و آنانی که در خلاف راستای آن میدان باشند، انرژی بیشتری را دارا می‌باشند.  تعداد پروتون های زیادی وجود دارند که در راستا و یا خلاف راستای میدان قرار می‌گیرند و تعداد آن ها تقریبا مشابه هم دیگر است که در حقیقت می‌توان گفت اکثر پروتون ها در اثر این میدان  اثر یک دیگر را خنثی می‌کنند اما برایند آن ها صفر نمی‌شود زیرا تعداد آنانی که در راستای میدان قرار می‌گیرند به میزان کمی، بیشتر است که به آن به اصطلاح، \textbf{اسپین اضافه}
+\LTRfootnote{Excess Spin}
+گفته می‌شود.
+(شکل \ref{fig:zeeman-diagram})
+از این رو مقدار ناصفری برای \textbf{مغناطیس‌شوندگی شبکه} 
+\LTRfootnote{Net Magnitation}
+وجود دارد.
+به عبارت دقیق‌تر، نسبت 
+\RLE{$\frac{\rltext{تعداد هم‌راستا‌ها} - \rltext{تعداد خلاف راستا‌‌ها}}{\rltext{تعداد کل پروتون‌ها}}$}
+یک عدد نامنفی بسیار کوچک است. به عنوان مثال، در یک میدان مغناطیسی خارجی $B_0 = 3 T$ و در دمای اتاق، نسبت مذکور چیزی در حدود $10^{-5}$ می‌باشد. یعنی از یک میلیون پروتونی که در اختیار داریم تنها 10 تای آنان در اسپین اضافه نقش دارند که آن اسپین اضافه در تولید \textbf{سیگنال های \mr}
+\LTRfootnote{MR Signals}
+استفاده می‌شوند.
+\begin{figure}
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{mychapters/chapter-2/figs/Gyroscope-components}
+	}{\urlSource{https://is.gd/T3UkHu}}
+	\caption{}
+	\label{fig:gyroscope-components}
+\end{figure}
+
+
+
+پدیده دومی که در اثر قرار گرفتن یک پروتون در درون یک میدان مغناطیسی بسیار قوی برایش اتفاق می‌افتد، حرکت تقدیمی نامیده می‌شود. این پدیده را می‌توان به صورت یک ژایروسکوپ 
+(\ref{fig:gyroscope-components})
+(شکل \ref{subfig:precession-top}) و یا حرکت آشنای یک فرفره‌ی درحال گردش (شکل \ref{subfig:precession-top})
+در نظر گرفت. اگر یک ژیروسکوپ و یا فرفره در راستای عمومی جهت گیری داشته باشد، بدون تلوتلو‌خوردن
+\LTRfootnote{Wobbling}
+به دور خود می‌چرخد. هنگامی که یک بار محور چرخش ژیروسکوپ از محور عمومی فاصله بگیرد، در اثر میدان مغناطیسی زمین یا همان جاذبه
+\LTRfootnote{Gravity}
+ شروع به گردش حول محور عمودی خود با فرکانسی مستقل از فرکانس اسپینی مطابق شکل \ref{subfig:precession-top}
+می‌کند. 
+
+به‌طور‌خلاصه دو نوع حرکت برای یک پروتون دارای اسپین در یک میدان مغناطیسی قوی می‌توان تصور کرد.
+
+\begin{alphabetlist}
+	\item
+	حرکت \textbf{اسپینی} هسته به دور محور خود و با فرکانس مخصوص خود که آن حرکت، \textbf{ممان زاویه‌ای اسپینی }را تولید می‌کند و آن نیز باعث ایجاد \textbf{ممان مغناطیسی }می‌شود.
+	\item
+	حرکت \textbf{تقدیمی} که نوعی تلوتلو خوردن و  گردش حول یک محور دیگه و با فرکانسی مستقل می‌باشد.
+\end{alphabetlist}
+
+
+\subsubsection{مغناطش شبکه}
+\textbf{مغناطش شبکه} و یا \textbf{مغناطیس‌شوندگی شبکه} 
+\LTRfootnote{Net Magnetization}
+موضوع مهم دیگری است که در \mri مطرح می‌شود.
+هر پروتون 
+
+
+
 
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
 	\begin{minipage}{\linewidth}\centering
-	\subfigure[]{\includegraphics[height=0.23\linewidth]{figs/gr-1}\label{subfig:gr1}}
+	\subfigure[]{\includegraphics[height=0.23\linewidth]{mychapters/chapter-2/figs/gr-1}\label{subfig:gr1}}
 	\hspace{0.08\linewidth}
-	\subfigure[]{\includegraphics[height=0.23\linewidth]{figs/gr-3}\label{subfig:gr3}}
-	\subfigure[]{\includegraphics[height=0.23\linewidth]{figs/gr-2}\label{subfig:gr2}}
+	\subfigure[]{\includegraphics[height=0.23\linewidth]{mychapters/chapter-2/figs/gr-3}\label{subfig:gr3}}
+	\subfigure[]{\includegraphics[height=0.23\linewidth]{mychapters/chapter-2/figs/gr-2}\label{subfig:gr2}}
 	\hspace{0.08\linewidth}
-	\subfigure[]{\includegraphics[height=0.25\linewidth]{figs/gr-4}\label{subfig:gr4}}
+	\subfigure[]{\includegraphics[height=0.25\linewidth]{mychapters/chapter-2/figs/gr-4}\label{subfig:gr4}}
 	\end{minipage}
 	}{\urlSource{https://yout.be/vC82NeZmL-M}}
 	\caption{}
@@ -292,7 +378,7 @@
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
-		\includegraphics[width=0.7\linewidth]{figs/Slice-selection-process}
+		\includegraphics[width=0.7\linewidth]{mychapters/chapter-2/figs/Slice-selection-process}
 	}{\scriptsize\Doi{10.1002/9781119013068}}
 	\caption{}
 	\label{fig:slice-selection-process}
@@ -301,7 +387,7 @@
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
-		\includegraphics[width=0.7\linewidth]{figs/Concept-of-phase-encoding}
+		\includegraphics[width=0.7\linewidth]{mychapters/chapter-2/figs/Concept-of-phase-encoding}
 	}{\scriptsize\Doi{10.1002/9781119013068}}
 	\caption{}
 	\label{fig:concept-of-phase-encoding}
