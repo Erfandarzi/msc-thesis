@@ -6,14 +6,19 @@
 \usepackage[table, svgnames, dvipsnames]{xcolor}
 \usepackage{color}
 \usepackage{amssymb,amsmath}
-\usepackage[colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage[hyphens]{url}%\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue, breaklinks]{hyperref}
+\usepackage{xurl}
+%\usepackage{url}
+
+
+%\usepackage{breakurl}
 \usepackage{copyrightbox,doi}
 \usepackage[usenames,dvipsnames]{pstricks}
 \usepackage{graphicx,subfigure,wrapfig}
 \usepackage{geometry,fancyhdr}
 \usepackage[mathscr]{euscript}
 \usepackage[version=4]{mhchem}
-\usepackage{xurl}
 \usepackage{tabularx,multirow,multicol,array}
 \newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
@@ -23,7 +28,7 @@
 \usepackage{algorithmicx,algorithm}
 
 \usepackage{makeidx}\makeindex
-\usepackage[localise=on,extrafootnotefeatures]{xepersian}
+\usepackage[localise=on,extrafootnotefeatures]{xepersian} %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[noend]{algpseudocode}
 \input{styles/alg-fa}
 
@@ -37,10 +42,15 @@
 \linespread{1.6}
 \setlength{\parskip}{0.45em}
 
+
+
 \fancyhf{}
 \rhead{\leftmark}
 \lhead{\thepage}
 
+\def\negspace{-2em}
+\newcommand{\removevspace}{\vspace{\negspace}}
+\newenvironment{equationx}{\removevspace$\begin{aligned}}{\end{aligned}$}
 \usepackage[bottom]{footmisc}
 % -------------------- Fonts --------------------
 
