@@ -327,8 +327,21 @@
 	\label{fig:gyroscope-components}
 \end{figure}
 
+به طور دقیق تر تعداد پروتون‌های همجهت ($N_\text{down}$) و خلاف جهت میدان ($N_\text{up}$)، از رابطه‌‌ی زیر ناشی میشود.
+ 
+ \removevspace
+ \begin{equation}
+ 	\dfrac{N_\text{up}}{N_\text{down}} = e^{\frac{\Delta E}{k_B T}}
+ \end{equation}
 
-
+که در این رابطه، $k_B$ ثابت بولتزمن
+\LTRfootnote{Boltzmann Constant}
+($k_B = 1.38 × 10^{–23} \mathrm{J} \mathrm{K}^{-1}$)
+ و $\Delta E$ اختلاف این دو سطح انرژی است که در شکل \ref{fig:zeeman-diagram}
+ مشخص شده است و $T$ نیز دما بر حسب کلوین می‌باشد. مرجع \cite{McRobbie}
+ روابط کوانتومی دقیق تری را در این رابطه بیان کرده است.
+ 
+ 
 پدیده دومی که در اثر قرار گرفتن یک پروتون در درون یک میدان مغناطیسی بسیار قوی برایش اتفاق می‌افتد، حرکت تقدیمی نامیده می‌شود. این پدیده را می‌توان به صورت یک ژایروسکوپ 
 (\ref{fig:gyroscope-components})
 (شکل \ref{subfig:precession-top}) و یا حرکت آشنای یک فرفره‌ی درحال گردش (شکل \ref{subfig:precession-top})
@@ -372,17 +385,17 @@
 مغناطیس شوندگی هر پروتون را می‌توان به عنوان یک بردار در‌نظر گرفت. مغناطش شبکه را می‌توان به‌عنوان برایند آن بردار ها مطابق شکل \ref{fig:net-mag}در نظر گرفت. 
 هر یک از این بردار را می‌توان در راستای میدان به دو مولفه‌ی طولی و عرضی تجزیه نمود. با این مدل‌سازی نیز همان‌طور که پیشتر نیز توضیح داده شد، اکثر مولفه هایی هم‌جهت و خلاف جهت، هم‌دیگر را کنسل می‌کنند و تعداد کمی اسپین های هم‌جهت باقی می‌مانند که اسپین اضافه نام داشتند. اما موله‌عرضی صفر است. جراکه اسپین پروتون‌ها فازی رندم دارند و بنابراین برایند آنان صفر می‌شود. این یعنی مغناطش شبکه، مولفه‌ای در راستای عرضی ندارد و صرفا در راستای مولفه‌ی طولی یا همان راستای میدان مغناطیسی خارجی $B_0$ می‌باشد. (شکل \ref{subfig:net-mag-b})
 
-\subsubsection{فرکانس لامور}
-
+\subsubsection{ فرکانس لامور و پدیده \nmr}
+با استفاده از روابط کوانتومی در \cite{McRobbie}،
 همانند رابطه‌ی بین تکانه زاویه ای اسپینی و ممان مغناطیسی که در رابطه‌ی \ref{eq:mu=gamma.phi} بیان شد، رابطه تناسبی دیگری نیز بین فرکانس زاویه‌ای حرکت تقدیمی $\omega_0$ و میدان مغناطیسی خارجی $B_0$  
 با \textbf{ثابت تناسب ژایرومغناطیسی}
 \LTRfootnote{Constant Gyromagnetic Ratio}
 $\gamma$
-وجود دارد:
+می‌توان استخراج نمود:
 
 
 \removevspace
-\begin{equation}
+\begin{equation}\label{eq:larmor}
 	\omega_0 = \gamma . B_0 \quad \leftrightarrow \quad f_0 = \frac{\gamma}{2\pi}. B_0
 \end{equation}
 
@@ -423,9 +436,6 @@ $\gamma$
 \end{table}
 
 
-\ref{subfig:precession-spin}
-
-
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
@@ -434,6 +444,70 @@ $\gamma$
 	\caption{}
 	\label{fig:energy-absorption}
 \end{figure}
+
+گفته شد که براثر وارد کردن یک میدان خارجی $B_0$ بر مجموعه ای از پروتون ها تعدادی از آن اسپین ها همجهت با میدان می‌شوند که انرژی کمتری دارند و تعدادی از آنان نیز خلاف انرژی میدان جهت گیری می‌کنند که انرژی بیشتری را دارا می‌باشند و در هردو سطح انرژی
+\LTRfootnote{Energy State}
+دارای حرکت تقدیمی با فرکانس تقدیمی لارمور که از رابطه‌ی \ref{eq:larmor}
+ناشی می‌شود، می‌باشند و اکثر آن ممان های مغناطیسی هم‌دیگر را خنثی می‌کردند و مغناطش شبکه که مقداری کوچک ولی ناصفری بود را بوجود می‌آوردند. 
+
+
+
+در این هنگام اگر یک سیگنال الکترومغناطیسی \lr{RF}
+با همان فرکانس لارمور $\omega_0$
+به آن تابیده شود، مطابق شکل \ref{fig:energy-absorption}
+تعدادی از اسپین هایی که هم جهت با میدان $B_0$ و در سطح انرژی پایین تری قرار داشتند، در اثر این تشدید، انرژی آن سیگنال را جذب می‌کنند و به سطح بالایی انرژی می‌روند که در این حالت نیز خلاف جهت میدان جهت گیری می‌کنند. این خاضیت در حقیقت یک ویژگی کوانتومی است که با فیزیک کلاسیک نمی‌توان آن را توجیه کرد.
+
+
+\begin{figure}
+	\centering
+	\subfigure[]{
+		\copyrightbox[b]{
+			\includegraphics[width=0.3\linewidth]{mychapters/chapter-2/figs/rotating-axis}
+			\label{subfig:rotating-axis-x'oy'}
+		}{\scriptsize\Doi{10.1017/9781107706958.010}}
+	}
+	\hfill
+	\subfigure[]{
+		\copyrightbox[b]{
+			\includegraphics[width=0.6\linewidth]{mychapters/chapter-2/figs/rotating-frame}
+			\label{subfig:rotating-frame}
+		}{\urlSource{musculoskeletalkey.com/magnetic-resonance-imaging-2/}}
+	}
+	\caption{}
+	\label{fig:rotating-axis}
+\end{figure}
+
+
+در اثر این اتفاق، مغناطش شبکه نیز دجار تغییر می‌شود. برای بررسی این تغییرات معمولا ساده تر است که دستگاه مختصات جدید $x'oy'$ 
+را به شیوه زیر تعریف کنیم:
+
+\removevspace
+\begin{subequations}
+\begin{align}\label{eq:x'oy'}
+	x' &= x \cos(\omega_0 t) - y \sin(\omega_0 t) \\ 
+	y' &= x \sin(\omega_0 t) + y \cos(\omega_0 t) \\ 
+	z' &= z 
+\end{align}
+\end{subequations}
+
+توجه داریم که در تعریف این دستگاه جدید پارامتر $t$ که همان زمان است، دخیل شده است و این یعنی
+که دستگاه  مختصاتی در طول زمان با همان فرکانس لارمور $\omega_0$ در حال گردش است که شکل \ref{subfig:rotating-axis-x'oy'} آن را نشان می‌دهد.(محور $z$ ها در همان راستای میدان $B_0$ تعریف شده است.) با این تغییر، ممان های مغناطیسی گردان، به صورت ایستان 
+\LTRfootnote{Stationary}
+مطابق شکل \ref{subfig:rotating-frame}
+در می‌آیند.
+
+
+
+\begin{figure}
+	\centering
+
+		\copyrightbox[b]{
+			\includegraphics[width=0.85\linewidth]{mychapters/chapter-2/figs/HRMN6}
+		}{\urlSource{https://musculoskeletalkey.com/magnetic-resonance-imaging-2/}}
+	\caption{}
+	\label{fig:roوtating-axis}
+\end{figure}
+
 
 
 
@@ -449,6 +523,7 @@ $\gamma$
 	\subfigure[]{\includegraphics[height=0.25\linewidth]{mychapters/chapter-2/figs/gr-4}\label{subfig:gr4}}
 	\end{minipage}
 	}{\urlSource{https://yout.be/vC82NeZmL-M}}
+	\removevspace
 	\caption{}
 	\label{fig:gr}
 \end{figure}
