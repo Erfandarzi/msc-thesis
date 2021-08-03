@@ -2,8 +2,7 @@
 %--------------------------------------------------------------------------
 %
 %  M.Sc. Thesis
-%  [Put Your Thesis Title Here]
-%  By: [Put Your Name Here]
+%  By: Mohammad Raziei
 %
 %--------------------------------------------------------------------------
 
@@ -46,12 +45,32 @@
 \newlist{iteminline}{itemize*}{1}
 \setlist[iteminline]{label=$\bullet$}
 
+\usepackage{placeins}
+\usepackage{comment}
+\usepackage{etoolbox}
+\newcounter{magicrownumbers}
+\usepackage{tabularx, longtable}
+\usepackage{ltablex}
 
+\usepackage{currfile-abspath}
+\input{styles/technical.tex}
 \input{styles/common.tex}
 \input{styles/custom.tex}
+\usepackage[]{ptext}
 
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\newcommand\resetrownumber{\preto\tabular{\setcounter{magicrownumbers}{0}}}
 
+\newcommand{\seecode}[2]{\href{#2}{\texttt{#1}}}
+\newcommand{\seemycode}[2]{\seecode{#1}{\thepwd../Code/#2}}
+\newcommand{\Seemycode}[1]{\seemycode{#1}{#1}}
 
+\renewcommand{\chaptername}{بخش}
+%\renewcommand{\thechapter}{\tartibi{chapter}}
+
+\newcommand{\hcenter}[1]{\makebox[\textwidth][c]{#1}}
+
+\graphicspath{ {../Code/results/} }
 
 \newcommand{\urlSource}[1]{\lr{\scriptsize{source: \url{#1}}}}
 \newcommand{\doiSource}[1]{\lr{\scriptsize{source: \doi{#1}}}}
@@ -63,11 +82,28 @@
 \newcommand{\PE}[3]{${}_{#2}^{#3}\mathbb{#1}$}
 \newcommand{\rltext}[1]{\text{\rl{#1}}}
 \newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0099\Leftrightarrowfill@{#1}{#2}}
+
+
+%\newtheorem*{note}{توجه}
+
+\newtheoremstyle{notethm}% 
+{}{}% 
+{\itshape}{}% 
+{}{}% 
+{ }% 
+{\colorbox{headerColor}
+	{\textbf{\thmname{#1}\thmnumber{ #2}}
+		\thmnote{ (#3)}.}}
+
+\declaretheorem[style=notethm,title=\rl{توجه}]{note}
+%\def\createmyenvironment#1#2#3{\declaretheorem[style=#1,title=#3]{#2}}
+%\createmyenvironment{notethm, note, \rl{توجه}}
+
 \begin{document}
 %\setlength{\abovedisplayskip}{0pt}
 %\setlength{\belowdisplayskip}{0pt}
 %\setlength{\abovedisplayshortskip}{0pt}
-%\setlength{\belowdisplayshortskip}{0pt}
+%\setlength{\belowdisplay\shortskip}{0pt}
 
 % -------------------- Front Pages --------------------
 
@@ -110,7 +146,6 @@
 \include{mychapters/chapter-4/main-project}
 \include{mychapters/chapter-5/results}
 \include{mychapters/chapter-6/conclusion}
-
 
 % -------------------- Appendices --------------------
 
