@@ -5,6 +5,10 @@
 
 \usepackage[table, svgnames, dvipsnames]{xcolor}
 \usepackage{color}
+
+
+
+
 \usepackage{amssymb,amsmath,gensymb}
 \usepackage[hyphens]{url}%\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks,linkcolor=blue,citecolor=blue, breaklinks]{hyperref}
@@ -24,13 +28,32 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \definecolor{headerColor}{rgb}{0.78,0.85,.95}
 
-
 \usepackage{algorithmicx,algorithm}
 
 \usepackage{makeidx}\makeindex
 \usepackage[localise=on,extrafootnotefeatures]{xepersian} %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[noend]{algpseudocode}
 \input{styles/alg-fa}
+
+\usepackage{bidihl}
+\definecolor{lightYellow}{rgb}{1,1,0.73}
+\newcommand{\hl}[1]{\bidihl{#1}}
+\definecolor{bidihlcolor}{rgb}{1,1,0.73}
+
+
+
+%\sethlcolor{yellow}
+%\def\SOUL@hlpreamble{%
+%	\setul{\dp\strutbox}{\dimexpr\ht\strutbox+\dp\strutbox\relax}%
+%	\let\SOUL@stcolor\SOUL@hlcolor
+%	\SOUL@stpreamble
+%}
+%\makeatother
+%
+%\newcommand{\hlfa}[1]{\hl{\rl{#1}}}
+%\newcommand{\hlc}[2][yellow]{\sethlcolor{#2}\hl{#1}}
+
+
 
 
 % -------------------- Page Layout --------------------
@@ -41,7 +64,10 @@
 \renewcommand{\baselinestretch}{1.4}
 \linespread{1.6}
 \setlength{\parskip}{0.45em}
-
+%\setlength{\abovedisplayskip}{0pt}
+%\setlength{\belowdisplayskip}{0pt}
+%\setlength{\abovedisplayshortskip}{0pt}
+%\setlength{\belowdisplayshortskip}{0pt}
 
 
 \fancyhf{}
