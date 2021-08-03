@@ -78,26 +78,15 @@
 \newcommand{\mri}{\lr{ MRI}}
 \newcommand{\mr}{\lr{ MR}}
 \newcommand{\nmr}{\lr{ NMR}}
+\newcommand{\kspace}{\lr{ k-space}}
 \newcommand{\f}[2]{$\frac{#1}{#2}$}
-\newcommand{\PE}[3]{${}_{#2}^{#3}\mathbb{#1}$}
 \newcommand{\rltext}[1]{\text{\rl{#1}}}
-\newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0099\Leftrightarrowfill@{#1}{#2}}
+\newcommand{\lrtext}[1]{\text{\lr{#1}}}
+%\newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0099\Leftrightarrowfill@{#1}{#2}}
+\newcommand{\Rho}{\mathcal{P}}
+\newcommand{\F}{\mathcal{F}}
 
 
-%\newtheorem*{note}{توجه}
-
-\newtheoremstyle{notethm}% 
-{}{}% 
-{\itshape}{}% 
-{}{}% 
-{ }% 
-{\colorbox{headerColor}
-	{\textbf{\thmname{#1}\thmnumber{ #2}}
-		\thmnote{ (#3)}.}}
-
-\declaretheorem[style=notethm,title=\rl{توجه}]{note}
-%\def\createmyenvironment#1#2#3{\declaretheorem[style=#1,title=#3]{#2}}
-%\createmyenvironment{notethm, note, \rl{توجه}}
 
 \begin{document}
 %\setlength{\abovedisplayskip}{0pt}
@@ -141,11 +130,11 @@
 %\include{chapters/literature}
 %\include{chapters/results}
 %\include{chapters/conclusions}
-\include{mychapters/chapter-2/chapter-2}
-\include{mychapters/chapter-3/literature-review}
-\include{mychapters/chapter-4/main-project}
-\include{mychapters/chapter-5/results}
-\include{mychapters/chapter-6/conclusion}
+\include{chapters/chapter-2/chapter-2}
+\include{chapters/chapter-3/literature-review}
+\include{chapters/chapter-4/main-project}
+\include{chapters/chapter-5/results}
+\include{chapters/chapter-6/conclusion}
 
 % -------------------- Appendices --------------------
 

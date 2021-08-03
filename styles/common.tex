@@ -9,7 +9,7 @@
 
 \usepackage{amsthm, thmtools}
 
-\usepackage{amssymb,amsmath,gensymb}
+\usepackage{amssymb,amsmath,gensymb,mathtools}
 \usepackage[hyphens]{url}%\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks,linkcolor=blue,citecolor=blue, breaklinks]{hyperref}
 \usepackage{xurl}
@@ -134,6 +134,24 @@ Path=styles/fonts/
 	{\begin{latin}\settextfont[Scale=1.0]{Times New Roman}
 	\begin{algorithm}[t]\caption{#1}\label{algo:#2}\vspace{0.2em}\begin{algorithmic}[1]}
 	{\end{algorithmic}\vspace{0.2em}\end{algorithm}\end{latin}}
+
+
+
+
+%\newtheorem*{note}{توجه}
+
+\newtheoremstyle{notethm}% 
+{}{}% 
+{\itshape}{}% 
+{}{}% 
+{ }% 
+{\colorbox{headerColor}
+	{\textbf{\thmname{#1}\thmnumber{ #2}}
+		\thmnote{ (#3)}.}}
+
+\declaretheorem[style=notethm,title=\rl{توجه}]{note}
+%\def\createmyenvironment#1#2#3{\declaretheorem[style=#1,title=#3]{#2}}
+%\createmyenvironment{notethm, note, \rl{توجه}}
 
 
 % -------------------- Titles --------------------
