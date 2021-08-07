@@ -8,7 +8,11 @@
 
 
 \usepackage{amsthm, thmtools}
-
+\usepackage{environ}
+%\usepackage{bickham}
+%\usepackage{boondox-cal}
+%\usepackage{boondox-calo}
+\usepackage{dutchcal}
 \usepackage{amssymb,amsmath,gensymb,mathtools}
 \usepackage[hyphens]{url}%\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks,linkcolor=blue,citecolor=blue, breaklinks]{hyperref}
@@ -30,6 +34,32 @@
 
 \usepackage{algorithmicx,algorithm}
 
+
+
+\usepackage{placeins}
+\usepackage{comment}
+\usepackage{etoolbox}
+\newcounter{magicrownumbers}
+\usepackage{tabularx, longtable}
+\usepackage{ltablex}
+
+%======================================================================================
+
+\usepackage[inline]{enumitem}
+\newlist{alphinline}{enumerate*}{1}
+\setlist[alphinline]{label=(\alph*)}
+\newlist{enuminline}{enumerate*}{1}
+\setlist[enuminline]{label=(\arabic*)}
+\newlist{circlelist}{enumerate}{1}
+\setlist[circlelist,1]{label=\protect\circled{\arabic*}}
+\newlist{alphabetlist}{enumerate}{1}
+\setlist[alphabetlist]{label=\alph*)}
+\newlist{checklist}{itemize}{1}
+\setlist[checklist]{label=$\checkmark$)}
+\newlist{iteminline}{itemize*}{1}
+\setlist[iteminline]{label=$\bullet$}
+
+%--------------------------------------------------------------------------------------
 \usepackage{makeidx}\makeindex
 \usepackage[localise=on,extrafootnotefeatures]{xepersian} %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[noend]{algpseudocode}
@@ -75,7 +105,7 @@
 \lhead{\thepage}
 
 \def\negspace{-2em}
-\newcommand{\removevspace}{\vspace{\negspace}}
+\newcommand{\removevspace}[1][2]{\vspace{-#1em}}
 \newenvironment{equationx}{\removevspace$\begin{aligned}}{\end{aligned}$}
 \usepackage[bottom]{footmisc}
 % -------------------- Fonts --------------------
@@ -203,6 +233,13 @@ Path=styles/fonts/
 \newcommand{\کد}[1]{\lr{\tt #1}}
 \newcommand{\پاورقی}[1]{\footnote{\lr{#1}}}
 
+\newcommand{\urlSource}[1]{\lr{\scriptsize{source: \url{#1}}}}
+\newcommand{\doiSource}[1]{\lr{\scriptsize{source: \doi{#1}}}}
+
+\newcommand{\hcenter}[1]{\makebox[\textwidth][c]{#1}}
+
+
+\newcommand{\Doi}[1]{\lr{\doi{#1}}}
 
 
 % -------------------- Dictionary --------------------
@@ -217,6 +254,11 @@ Path=styles/fonts/
 }
 
 \newcommand{\dic}[2]{\noindent  #2 \dotfill  \lr{#1} \\ }
+
+\NewEnviron{copyrightBox}[3][b]{
+	\noindent\copyrightbox[#1]{
+		\begin{minipage}{#2}\BODY\end{minipage}
+	}{#3}}
 
 
 % ------------------------------ Images and Figures --------------------------
@@ -242,4 +284,6 @@ Path=styles/fonts/
 	{\begin{wrapfigure}{l}{\IfValueTF{#3}{#3}{#2}}
 	\centering\includegraphics[width=#2]{figs/#1}\end{wrapfigure}}
 
-
+\newcommand{\f}[2]{$\frac{#1}{#2}$}
+\newcommand{\rltext}[1]{\text{\rl{#1}}}
+\newcommand{\lrtext}[1]{\text{\lr{#1}}}

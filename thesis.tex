@@ -31,26 +31,7 @@
 
 %\usepackage{minipage-marginpar}
 
-\usepackage[inline]{enumitem}
-\newlist{alphinline}{enumerate*}{1}
-\setlist[alphinline]{label=(\alph*)}
-\newlist{enuminline}{enumerate*}{1}
-\setlist[enuminline]{label=(\arabic*)}
-\newlist{circlelist}{enumerate}{1}
-\setlist[circlelist,1]{label=\protect\circled{\arabic*}}
-\newlist{alphabetlist}{enumerate}{1}
-\setlist[alphabetlist]{label=\alph*)}
-\newlist{checklist}{itemize}{1}
-\setlist[checklist]{label=$\checkmark$)}
-\newlist{iteminline}{itemize*}{1}
-\setlist[iteminline]{label=$\bullet$}
 
-\usepackage{placeins}
-\usepackage{comment}
-\usepackage{etoolbox}
-\newcounter{magicrownumbers}
-\usepackage{tabularx, longtable}
-\usepackage{ltablex}
 
 \usepackage{currfile-abspath}
 \input{styles/technical.tex}
@@ -68,20 +49,11 @@
 \renewcommand{\chaptername}{بخش}
 %\renewcommand{\thechapter}{\tartibi{chapter}}
 
-\newcommand{\hcenter}[1]{\makebox[\textwidth][c]{#1}}
 
-\graphicspath{ {../Code/results/} }
-
-\newcommand{\urlSource}[1]{\lr{\scriptsize{source: \url{#1}}}}
-\newcommand{\doiSource}[1]{\lr{\scriptsize{source: \doi{#1}}}}
-\newcommand{\Doi}[1]{\lr{\doi{#1}}}
 \newcommand{\mri}{\lr{ MRI}}
 \newcommand{\mr}{\lr{ MR}}
 \newcommand{\nmr}{\lr{ NMR}}
-\newcommand{\kspace}{\lr{ k-space}}
-\newcommand{\f}[2]{$\frac{#1}{#2}$}
-\newcommand{\rltext}[1]{\text{\rl{#1}}}
-\newcommand{\lrtext}[1]{\text{\lr{#1}}}
+\newcommand{\kspace}{\lr{ k-space }}
 %\newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0099\Leftrightarrowfill@{#1}{#2}}
 \newcommand{\Rho}{\mathcal{P}}
 \newcommand{\F}{\mathcal{F}}

@@ -1,25 +1,77 @@
 \section{یادگیری عمیق}\label{ch:literature-review|sec:deep-learning}
 
 
+با توسعه‌ی الگوریتم های یادگیری ماشین و یادگیری عمیق در حوزه های مختلف فناوری و مهندسی، بازسازی تصاویر \mri نیز از این مقوله مستثنا نبوده است. اخیرا مقالات زیادی در این زمینه با استفاده از یادگیری عمیق انجام شده است. 
 
-
-
-\begin{figure}
+\begin{figure}[t!]
 	\centering
+	\begin{copyrightBox}{\linewidth}{\Doi{10.1109/tmi.2019.2927101}}
 	\subfigure[]{\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/deep-learning_a}}
 	\hspace{0.1\linewidth}
 	\subfigure[]{\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/deep-learning_b}}
+	
 	\subfigure[]{\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/deep-learning_c}\label{subfig:deep-learning-c}}
 	\hspace{0.1\linewidth}
 	\subfigure[]{\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/deep-learning_d}}
+	\end{copyrightBox}
+	\removevspace
 	\caption{}
 	\label{fig:deep-learning-model}
 \end{figure}
 
 
-در ساختار \lr{CS-MRI} تلاش می‌شود که مسيله‌ی بهینه سازی زیر حل شود تا از اسپارسیتی در یک حوزه تبدیل بتوان به منظور بازسازی تصویر از روی نقاط باقیمانده کند. مشکل اصلی این کار که در مقاله \cite{Lustig_2007} راه حل حسگری فشرده آن مورد بررسی قرار گرفت، این است که به بخاطر مفهوم مطلوب ناهمدوستی
+روش کلی در تمامی این مقالات این است که با داشتن داده های کامل نمونه برداری شده
+\LTRfootnote{fully-sampled data}
+و \kspace متناظر‌ آن، ابتدا داده هایی با نرخ کمتر تولید می‌کنند و سپس این جفت دادگان را به یک شبکه یاد‌گیری ماشین می‌دهند به گونه ای که سیستم طراحی شده در ورودی خود دادگان \kspace نمونه برداری شده با نرخ کمتر و در خروجی خود تصویر \mri با نرخ نمونه برداری کامل را ببیند و سیستم طراحی شده سعی کند که رابطه بین ورودی و خروجی را کشف کند.
+شکل \ref{fig:deep-learning-model}
+به نقل از \cite{kSpace-deeplearning2020}
+حالت های ممکن مورد بررسی در این روش‌ها را بیان ‌می‌کند.
+
+
+
+
+
+
+
+
+
+
+\subsection{استفاده از اتوانکدور در حوزه‌ی \kspace}
+تبدیل فوریه مکانی
+\LTRfootnote{Spatial Fourier Transform}
+یک سیگنال دلخواه
+$x \colon \mathbb{R}^2 \rightarrow \mathbb{R} $
+
+
+
+
+\removevspace
+\begin{equation}
+	\hat{x}(\mathbf{k})=\mathcal{F}[x](\mathbf{k}):=\int_{\mathbb{R}^{d}} e^{-\iota \mathbf{k} \cdot \mathbf{r}} x(\mathbf{r}) d \mathbf{r}
+\end{equation}
+
+\begin{equation}
+	\mathbf{y} = \mathcal{P}_{\Lambda}[\hat{\mathbf{x}}]
+\end{equation}
+
+\begin{equation}
+	\left[\mathcal{P}_{\Lambda}[\hat{\mathbf{x}}]\right]_{i}= 
+	\begin{cases}
+		\hat{x}[i], & i \in \Lambda \\ 
+		0, & \rltext {سایر موارد}
+	\end{cases}
+\end{equation}
+
+\begin{equation}
+	\widehat{\mathbf{x}}=[\hat{x}[0] \quad \cdots \quad \hat{x}[N-1]], \qquad \text { where } \quad \hat{x}[i]=\widehat{x}\left(\mathbf{k}_{i}\right)
+\end{equation}
+
+
+
+
+در ساختار \lr{CS-MRI} تلاش می‌شود که مسئله‌ی بهینه سازی زیر حل شود تا از اسپارسیتی در یک حوزه تبدیل بتوان به منظور بازسازی تصویر از روی نقاط باقیمانده کند. مشکل اصلی این کار که در مقاله \cite{Lustig_2007} راه حل حسگری فشرده آن مورد بررسی قرار گرفت، این است که به بخاطر مفهوم مطلوب ناهمدوستی
 \LTRfootnote{Incoherency}
-مجبور به آپدیت کرد بین هردو حوزه‌ی تصویر و حوزه \kspace است.
+مجبور به آپدیت کردن بین هردو حوزه‌ی تصویر و حوزه \kspace است.
 
 \removevspace
 \begin{subequations}
@@ -29,7 +81,7 @@
 	\end{align}
 \end{subequations}
 
-
+همان‌گونه که در بخش \ref{ch:literature-review|sec:compressed-sensing|subsec:aloha} نیز توضیح داده شد،
 مقاله \cite{Jin_2016}
 توانست نشان دهد که بین اسپارسیتی در یک حوزه تبدیل از تصویر (یا
 \lr{FRI}\LTRfootnote{Finite Rate Inovation})
