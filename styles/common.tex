@@ -256,6 +256,7 @@ Path=styles/fonts/
 \newcommand{\dic}[2]{\noindent  #2 \dotfill  \lr{#1} \\ }
 
 \NewEnviron{copyrightBox}[3][b]{
+	\setcounter{subfigure}{0}% Reset subfigure counter
 	\noindent\copyrightbox[#1]{
 		\begin{minipage}{#2}\BODY\end{minipage}
 	}{#3}}

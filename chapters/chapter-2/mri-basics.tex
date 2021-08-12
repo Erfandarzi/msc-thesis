@@ -414,20 +414,20 @@ $\gamma$
 		\begin{tabularx}{\textwidth}{ | c | c | c | Y | Y | Y | Y | }
 			\hline\rowcolor{headerColor}
 			Element & Isotope & Spin & Natural Abundance & Quadrupole Moment, Q $(10^{-30} \frac{\mathrm{rad}}{m^2}\mathrm{A})$& Gyromagnetic Ratio $(10^7 \frac{\mathrm{rad}}{Ts})$ & Common Reference Standard\\ \hline\hline
-			\multirow{2}{*}{Hydrogen} & \ce{^1H} & \f12 & 100 & 0 & 26.75105 & \ce{Si(CH3)4} \\ \cline{2-7}
-			& \ce{^2H} or \ce{^2D}
+			\multirow{2}{*}{Hydrogen} & \ce{^1_1H} & \f12 & 100 & 0 & 26.75105 & \ce{Si(CH3)4} \\ \cline{2-7}
+			& \ce{^2_1H} or \ce{^2_1D}
 			& 1 & < 0.1 & 2.8E-3 & 4.10646 & \ce{Si(CD3)4} \\ \hline
-			\multirow{2}{*}{Boron} & \ce{^10B} & 3 & 19.7 & 0.08 & 2.87471 & \ce{BF3.OEt2} \\ \cline{2-7}
-			& \ce{^11B} & \f32 & 80.3 & 0.04 & 8.58406 & \ce{BF3.OEt2} \\ \hline
-			Carbon & \ce{^13C} & \f12 & 1.1 & 0 & 6.72804 & \ce{Si(CH3)4} \\ \hline
-			\multirow{2}{*}{Nitrogen} & \ce{^14N} & 1 & 99.6 & 1 & 1.93297 & \ce{CH3NO2} \\ \cline{2-7}
-			& \ce{^15N} & \f12 & 0.4 & 0 & -2.71171 & \ce{CH3NO2} \\ \hline
-			Fluorine & \ce{^19F} & \f12 & 100 & 0 & 25.18034 & \ce{CFCl3} \\ \hline
-			Aluminium & \ce{^27Al} & \f52 & 100 & 15 & 6.97594 & \ce{Al(NO3)3} in \ce{D2O} \\ \hline
-			Silicon & \ce{^29Si} & \f12 & 4.7 & 0 & -5.3146 & \ce{Si(CH3)4} \\ \hline
-			Phosphorus & \ce{^31P} & \f12 & 100 & 0 & 10.84015 & 85\% \ce{H3PO4} \\ \hline
-			\multirow{2}{*}{Chlorine} & \ce{^35Cl} & \f32 & 75.5 & -7.9 & 2.62401 &\ce{NaCl} in \ce{D2O} \\ \cline{2-7}
-			& \ce{^37Cl} & \f32 & 24.5 & -6.2 & 2.18428 & \ce{NaCl} in \ce{D2O} \\ \hline
+			\multirow{2}{*}{Boron} & \ce{^10_5B} & 3 & 19.7 & 0.08 & 2.87471 & \ce{BF3.OEt2} \\ \cline{2-7}
+			& \ce{^11_5B} & \f32 & 80.3 & 0.04 & 8.58406 & \ce{BF3.OEt2} \\ \hline
+			Carbon & \ce{^13_6C} & \f12 & 1.1 & 0 & 6.72804 & \ce{Si(CH3)4} \\ \hline
+			\multirow{2}{*}{Nitrogen} & \ce{^14_7N} & 1 & 99.6 & 1 & 1.93297 & \ce{CH3NO2} \\ \cline{2-7}
+			& \ce{^15_7N} & \f12 & 0.4 & 0 & -2.71171 & \ce{CH3NO2} \\ \hline
+			Fluorine & \ce{^19_9F} & \f12 & 100 & 0 & 25.18034 & \ce{CFCl3} \\ \hline
+			Aluminium & \ce{^27_13Al} & \f52 & 100 & 15 & 6.97594 & \ce{Al(NO3)3} in \ce{D2O} \\ \hline
+			Silicon & \ce{^29_14Si} & \f12 & 4.7 & 0 & -5.3146 & \ce{Si(CH3)4} \\ \hline
+			Phosphorus & \ce{^31_15P} & \f12 & 100 & 0 & 10.84015 & 85\% \ce{H3PO4} \\ \hline
+			\multirow{2}{*}{Chlorine} & \ce{^35_17Cl} & \f32 & 75.5 & -7.9 & 2.62401 &\ce{NaCl} in \ce{D2O} \\ \cline{2-7}
+			& \ce{^37_17Cl} & \f32 & 24.5 & -6.2 & 2.18428 & \ce{NaCl} in \ce{D2O} \\ \hline
 		\end{tabularx}
 	\end{latin}
 	}{\urlSource{http://www.acadiau.ca/~bellis/resources/nmr/isotopes.html}}
@@ -528,7 +528,7 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 می‌نامند. از این نکته می‌توان دلیل نام گذاری \mri و مخصوصا بخش رزونانسی آن را متوجه شد.
 
 
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 	\copyrightbox[b]{
 		\begin{minipage}{0.9\linewidth}\centering
@@ -547,6 +547,23 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 \end{figure}
 
 
+\begin{figure}[t]
+\centering
+\begin{copyrightBox}{\linewidth}{\urlSource{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/polclas.html}}
+	\begin{RTL}
+	\subfigure[]{\includegraphics[width=0.35\linewidth]{chapters/chapter-2/figs/wave-linear-circular-pol}}
+	\hfill
+	\subfigure[]{\includegraphics[width=0.55\linewidth]{chapters/chapter-2/figs/polcls}}
+	\end{RTL}
+\end{copyrightBox}
+\label{fig:wave-linear-circular-pol}
+\end{figure}
+%\begin{figure}[t]
+%	\centering
+%	\copyrightbox[b]{
+%		\includesvg[width=0.4\linewidth]{chapters/chapter-2/figs/Onde_electromagnetique.svg}\label{fig:Onde_electromagnetique.svg}
+%	}{\urlSource{https://w.wiki/3svH}}
+%\end{figure}
 
 پالس \lr{RF} توسط یک سیم‌پیچ فرستنده که بر میدان $B_0$ عمود است، ایجاد می‌شود و یک میدان مغناطیسی  $B_1$ که عمود بر میدان $B_0$ و با فرکانس تشدید لارمور $\omega_0$ در حال نوسان است، را ایجاد می‌کند. بنابراین دیگر موله عرضی $M_0$ صفر نمی‌باشد. فرض کنید این میدان جدید $B_1$ 
 در دستگاه گردان شکل \ref{eq:x'oy'}
@@ -677,6 +694,6 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 
 
 
-
-
+\subsection{مطالعه بیشتر}
+منابع متعددی در زمینه \mri منتشر شده است. اما از نظر نویسنده این پایان‌نامه، مقاله \cite{McRobbie} نگاه نسبتا پوشایی به فیزیک ابتدایی \mri دارد. همچنین از کتب \cite{book:basic-principles-and-applications} و \cite{book:MRIfromPictureToProton} نیز در نوشتن این مطالب استفاده شده‌است که منابع بسیار مفیدی در این زمینه هستند.
 
