@@ -238,9 +238,26 @@ Path=styles/fonts/
 
 \newcommand{\hcenter}[1]{\makebox[\textwidth][c]{#1}}
 
-
 \newcommand{\Doi}[1]{\lr{\doi{#1}}}
 
+
+
+\AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}% Resets subfigure counter at start of figure environment
+
+%.cwl
+\NewEnviron{copyrightBox}[3][b]{
+	%	\setcounter{subfigure}{0}% Reset subfigure counter
+	\noindent\copyrightbox[#1]{
+		\begin{minipage}{#2}\BODY\end{minipage}
+	}{#3}}
+%.cwl
+\NewEnviron{RTLcopyrightBox}[3][b]{
+	%	\setcounter{subfigure}{0}% Reset subfigure counter
+	\noindent\copyrightbox[#1]{
+		\begin{minipage}{#2}
+			\begin{RTL}	\BODY \end{RTL}
+		\end{minipage}
+	}{#3}}
 
 % -------------------- Dictionary --------------------
 
@@ -254,12 +271,6 @@ Path=styles/fonts/
 }
 
 \newcommand{\dic}[2]{\noindent  #2 \dotfill  \lr{#1} \\ }
-
-\NewEnviron{copyrightBox}[3][b]{
-	\setcounter{subfigure}{0}% Reset subfigure counter
-	\noindent\copyrightbox[#1]{
-		\begin{minipage}{#2}\BODY\end{minipage}
-	}{#3}}
 
 
 % ------------------------------ Images and Figures --------------------------

@@ -549,13 +549,11 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 
 \begin{figure}[t]
 \centering
-\begin{copyrightBox}{\linewidth}{\urlSource{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/polclas.html}}
-	\begin{RTL}
-	\subfigure[]{\includegraphics[width=0.35\linewidth]{chapters/chapter-2/figs/wave-linear-circular-pol}}
+\begin{RTLcopyrightBox}{\linewidth}{\urlSource{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/polclas.html}}
+	\subfigure[]{\includegraphics[height=0.26\linewidth]{chapters/chapter-2/figs/wave-linear-circular-pol}}
 	\hfill
-	\subfigure[]{\includegraphics[width=0.55\linewidth]{chapters/chapter-2/figs/polcls}}
-	\end{RTL}
-\end{copyrightBox}
+	\subfigure[]{\includegraphics[height=0.26\linewidth]{chapters/chapter-2/figs/polcls}}
+\end{RTLcopyrightBox}
 \label{fig:wave-linear-circular-pol}
 \end{figure}
 %\begin{figure}[t]
@@ -668,6 +666,83 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 \end{figure}
 
 
+%Selection of T1 and T2 values for tissues at 0.5 T, 1.5 T and 3 T. All values measured in vivo from human tissues
+\begin{table}[b!]
+	\centering
+	\begin{latin}
+		\begin{copyrightBox}{0.7\linewidth}{\scriptsize\Doi{10.1017/9781107706958.010}}
+			\rowcolors{2}{gray!10}{white}
+			\begin{tabular}{|c|ccc|ccc|}
+				\hline \rowcolor{headerColor}
+				& \multicolumn{3}{c|}{T1 (ms)} & \multicolumn{3}{c|}{T2 (ms)} \\
+				\rowcolor{headerColor} Tissue & 0.5 T & 1.5 T & 3 T & 0.5 T & 1.5 T & 3 T \\\hline\hline
+				White matter & 520 & 560 & 832 & 107 & 82 & 110 \\
+				Grey matter & 780 & 1100 & 1331 & 110 & 92 & 80 \\
+				CSF  & –  & 2060 & 3700 & – & – & – \\
+				Muscle & 560 & 1075 & 898 & 34 & 33 & 29 \\
+				Fat & 192 & 200 & 382 & 108 & – & 68 \\
+				Liver & 395 & 570 & 809 & 96 & – & 34 \\
+				Spleen & 760 & 1025 & 1328 & 140 & – & 61 \\\hline
+			\end{tabular}
+		\end{copyrightBox}
+	\end{latin}
+	\removevspace[1.]
+	\caption{}
+\end{table}
+
+
+
+\begin{figure}[t!]
+	\centering
+	\subfigure[]{
+	\copyrightbox[b]{
+		\includegraphics[width=0.5\linewidth]{chapters/chapter-2/figs/spin-echo}
+	}{\urlSource{https://is.gd/rSpAtw}}}
+	\hfill
+	\subfigure[]{
+	\copyrightbox[b]{
+		\includegraphics[width=0.45\linewidth]{chapters/chapter-2/figs/fse_diag}
+	}{\urlSource{http://xrayphysics.com/sequences.html}}}
+	\caption{}
+	\label{fig:spin-echo}
+\end{figure}
+
+
+
+
+
+
+\begin{figure}
+	\centering
+	\begin{RTLcopyrightBox}{\linewidth}{\urlSource{http://mriquestions.com/gradient-coils.html}}
+		\subfigure[]{
+			\includegraphics[height=0.27\linewidth]{chapters/chapter-2/figs/gradinent-coil-real}
+			\label{subfig:gradinent-coil-real}}
+		\subfigure[]{
+			\includegraphics[height=0.27\linewidth]{chapters/chapter-2/figs/gradinent-coil-guy}
+			\label{subfig:gradinent-coil-guy}}
+		\subfigure[]{
+			\includegraphics[height=0.27\linewidth]{chapters/chapter-2/figs/gradinent-coil}
+			\label{subfig:gradinent-coil}}
+	\end{RTLcopyrightBox}
+	\caption{}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{figure}
 	\centering
@@ -686,6 +761,8 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	\caption{}
 	\label{fig:concept-of-phase-encoding}
 \end{figure}
+
+
 
 
 
