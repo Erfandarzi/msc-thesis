@@ -88,6 +88,40 @@
 \end{figure}
 
 
+\subsection{زبان فنی \mri}
+در حوزه \mri نیز مانند دیگر شاخه های علوم پزشکی و کلا علوم، زبان و عبارت های خاص خود را دارد. بسیاری از این عبارت ها که با حرف \lr{T} شروع می‌شوند ممکن است کمی عجیب و سردم کننده باشد. هرچند در ادامه برخی از آن‌ها را به تفصیل توضیح خواهیم داد اما در ابتدا یک بار با آن ها در این قسمت آشنا می‌شویم. جدول \ref{table:overview-mri-terms}
+برگرفته شده از \cite{book:MRIfromPictureToProton}
+این موارد را بیان می‌کند.
+
+\begin{table}[b!]
+	\centering
+	\rowcolors{2}{gray!10}{white}
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline\rowcolor{headerColor}
+		عبارت & توضیحات \\\hline
+		\lr{\Tone} & 
+		یکی از مشخصه های یک بافت است که \textit{زمان آزادسازی اسپین-لتیس} نامیده می‌شود.
+		\\
+		\lr{\Ttwo} & 
+		یکی از مشخصه های یک بافت است که \textit{زمان آزادسازی اسپین-اسپین} نامیده می‌شود.
+		\\
+		\lr{\TtwoStar} & 
+		یکی از مشخصه های بافتی است که در یک میدان مغناطیسی قرار دارد و \textit{زمان آزادسازی اسپین-اسپین آشکار} نامیده می‌شود.	
+		\\
+		\lr{PD} & \\
+		\lr{TR} & \\
+		\lr{TE} & \\
+		\lr{TI} & \\
+		$\alpha$ & \\
+		\lr{{\Tone}w} & \\
+		\lr{{\Ttwo}w} & \\
+		\lr{{\TtwoStar}w} & \\
+		\lr{PDw} & \\\hline
+	\end{tabularx}
+	\caption{عبارت مهم در \mri}
+	\label{table:overview-mri-terms}
+\end{table}
+
 \subsection{بررسی مفهوم اسپین}
  
 
@@ -746,6 +780,18 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 
 
 
+\sidecaptionvpos{figure}{b}
+\begin{SCfigure}[1.5][t!]
+	\centering
+	\includegraphics[width=0.3\linewidth]{chapters/chapter-2/figs/tortoise_hare-gre}
+	\caption[دوندگان در یک مسیر]{دوندگان در یک مسیر.}
+	\label{fig:tortoise-hare-gre}
+\end{SCfigure}
+
+
+
+
+
 \begin{figure}[t!]
 	\centering
 	\copyrightbox[b]{
@@ -770,14 +816,22 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 
 \begin{figure}
 	\centering
+	\subfigure[]{
 	\copyrightbox[b]{
-		\includegraphics[width=0.7\linewidth]{chapters/chapter-2/figs/Slice-selection-process}
-	}{\scriptsize\Doi{10.1002/9781119013068}}
+		\includegraphics[width=0.2\linewidth]{chapters/chapter-2/figs/Slice-selection-freq-enc}
+	}{\lr{\scriptsize source: \href{https://is.gd/1adUOy}{is.gd/1adUOy}}}}
+	\hfill
+	\subfigure[]{
+		\copyrightbox[b]{
+			\includegraphics[width=0.7\linewidth]{chapters/chapter-2/figs/Slice-selection-process}
+		}{\scriptsize\Doi{10.1002/9781119013068}}}
+
+
 	\caption{}
 	\label{fig:slice-selection-process}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 	\copyrightbox[b]{
 		\includegraphics[width=0.7\linewidth]{chapters/chapter-2/figs/Concept-of-phase-encoding}
@@ -787,9 +841,27 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 \end{figure}
 
 
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.4\linewidth]{chapters/chapter-2/figs/3switches-3bulbs}
+	}{\urlSource{http://youtu.be/bN_ra_PYS2o}} %https://img.youtube.com/vi/bN_ra_PYS2o/0.jpg
+%	\copyrightbox[b]{
+%		\includegraphics[width=0.4\linewidth]{chapters/chapter-2/figs/3switches-one-bulb}
+%	}{\urlSource{http://youtu.be/w22pXPMUow0}}
+	\removevspace[1]
+	\caption{معمای سه کلید و سه لامپ}
+	\label{fig:3switches-3bulbs}
+\end{figure}
 
 
+\subsection{\kspace}
 
+\begin{align}
+	\Delta K = & \dfrac{1}{\rltext{FOV}} \\
+	 k\rltext{FOV} = & (+k_{\max}) - (-k_{\max}) = 2 k_{\max} \\
+	 = & N / \lrtext{FOV} = 1 / \Delta w
+\end{align}
 
 
 
