@@ -819,7 +819,7 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	\subfigure[]{
 	\copyrightbox[b]{
 		\includegraphics[width=0.2\linewidth]{chapters/chapter-2/figs/Slice-selection-freq-enc}
-	}{\lr{\scriptsize source: \href{https://is.gd/1adUOy}{is.gd/1adUOy}}}}
+	}{\lr{\scriptsize source: \urlWithoutHttps{is.gd/1adUOy}}}}
 	\hfill
 	\subfigure[]{
 		\copyrightbox[b]{
@@ -862,6 +862,100 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	 k\rltext{FOV} = & (+k_{\max}) - (-k_{\max}) = 2 k_{\max} \\
 	 = & N / \lrtext{FOV} = 1 / \Delta w
 \end{align}
+
+\FloatBarrier
+\subsection{ارتباط \kspace با کد کردن فرکانس و فاز}
+پس از تحریک کردن یک اسلایس، گرادیان های فاز و فرکانس اعمال می‌شود تا سیگنال های \mr را جهت بدست آوردن فرکانس های فضایی بکار بگیریم. برای این منظور ابتدا، المان  $\partial s$  از سیگنال را در نظر بگیرید. 
+
+\removevspace
+\begin{equation}\label{eq:element-fe}
+	\mathbf{\partial} s(t) = \rho(x) . \exp(\frac{-t}{T_2^*}) .  \exp(i\gamma.x.G_{\lrtext{FE}}.t). \mathbf{d}x
+\end{equation}
+
+در این رابطه $\rho(x)$
+چگالی پروتون ها در راستای $x$ است. گرادیان $G_{\lrtext{FE}}$ به صورت پیوسته در جهت $x$ , در زمان نمونه برداری سیگنال $(t)$ اعمال می‌شود.گرادیان ناهمفاز کننده معمولا قبل از نمونه بردای اعمال می‌شود تا اکوی متقارنی ایجاد شود.
+
+حال در جهت $y$ فاز را کد می‌کنیم. این کار با اعمال یک گرادیان $G_{\lrtext{PE}}$
+به مدت زمان $\tau$ قبل از زمان نمونه برداری، انجام می‌پذیرد. یک المان کوچک از سیگنال $\partial s$ با اعمال هردو گرادیان به شکل زیر است.
+
+
+\removevspace
+ \begin{equation}\label{eq:element-fe-pe}
+ 		\mathbf{\partial} s(t) = \rho(x,y) . \exp(\frac{-t}{T_2^*}) .  \exp(i\gamma.x.G_{\lrtext{FE}}.t).  \exp(i\gamma.y.G_{\lrtext{PE}}.\tau). \mathrm{d}x \mathrm{d}y
+ \end{equation}
+
+
+به عبارت دیگر
+
+\removevspace
+\begin{equation*}
+	\rltext{سیگنال} = \rltext{چگالی اسپین ها} \times \rltext{میرایی \TtwoStar} \times \rltext{تغییر فاز ناشی از $G_{\lrtext{FE}}$ } \times \rltext{تغییر فاز ناشی از $G_{\lrtext{PE}}$ }
+\end{equation*}
+
+
+سیگنال نهایی از انتگرال المان فوق نسبت به $x$ و $y$ حاصل می‌شود:
+
+\removevspace
+\begin{subequations}\label{eq:iint-element-fe-pe}
+\begin{align}
+	S(t, \tau) =& \int \partial s(t) \\
+	=& \iint \rho(x,y) . \exp(\frac{-t}{T_2^*}) .  \exp(i\gamma.x.G_{\lrtext{FE}}.t).  \exp(i\gamma.y.G_{\lrtext{PE}}.\tau). \mathrm{d}x \mathrm{d}y
+\end{align}
+\end{subequations}
+
+در معادله \ref{eq:iint-element-fe-pe} مفهوم زمان های $t$ و $\tau$ به صورت پیوسته آمده است، این در حالی است که از سیگنال $M$ بار در بازه های $\Delta t$ نمونه برداری و هر سری پالس نیز $N$ مرتبه تکرار  شده است که در هر مرحله از آن، دامنه گرادیان $G_{\lrtext{PE}}$ افزایش یافته است:
+
+\removevspace
+\begin{equation} \label{eq:def-gpe}
+	G_{\lrtext{PE}} = \Delta G . n \qquad  : \quad n = -\left(\frac{N}{2}\right) \rltext{تا} \left(\frac{N}{2} - 1\right)
+\end{equation}
+ 
+ در داخل نمایی های تغییرات فاز معادله \ref{eq:iint-element-fe-pe} را نیز می‌‌توان با تعریف
+  $k_{\lrtext{FE}}$
+و 
+$k_{\lrtext{PE}}$
+به صورت زیر، ساده‌تر نمود.
+
+\removevspace
+\begin{subequations} \label{eq:def-kpe-kfe}
+\begin{align}
+	k_{\lrtext{FE}} &= \gammabar . G_{\lrtext{FE}} . \Delta t . m \\
+	k_{\lrtext{PE}} &= \gammabar . \Delta G . n . \tau
+\end{align}
+\end{subequations}
+
+حال با در نظر گرفتن معادلات \ref{eq:def-kpe-kfe} و \ref{eq:def-gpe}، 
+می‌توان نسخه گسسته معادله \ref{eq:iint-element-fe-pe}
+را به شیوه زیر باز نویسی نمود.
+
+\removevspace
+\begin{equation}\label{eq:rel-dft-kspace}
+	S(m,n) = \iint \rho(x,y) . \exp(\frac{-t}{T_2^*}) .  \exp(i2\pi.x.k_{\lrtext{FE}}).  \exp(i2\pi.y.k_{\lrtext{PE}}). \mathrm{d}x \mathrm{d}y
+\end{equation}
+ 
+که در آن مطابق معادله \ref{eq:def-kpe-kfe}، $k_{\lrtext{FE}}$ تابعی از $m$ و $k_{\lrtext{PE}}$ تابعی از $n$ می باشد. اگر به معادله \ref{eq:rel-dft-kspace} دقیق تر بنگریم، مشاهده می‌کنیم اگر جمله $\exp(\frac{-t}{T_2^*})$ را در نظر نگیریم، به معکوس تبدیل فوریه چگالی اسپین می‌رسیم. بنابراین می‌توان نوشت:
+
+\removevspace
+\begin{equation} \label{eq:dft-rho}
+		S(m,n) = \F\left[\rho(x,y)\right](k_{\lrtext{FE}}, k_{\lrtext{PE}})
+\end{equation}
+
+بنابراین $k$ در رابطه \ref{eq:def-kpe-kfe} همان فرکانس های فضایی مدنظر هستند و وجه تسمیه \kspace نیز همین موضوع است. البته توجه داشته باشید که معادله \ref{eq:dft-rho} کاملا صحیح نمی‌باشد چرا که از جمله میراشونده با نرخ \TtwoStar در معادله \ref{eq:rel-dft-kspace} صرف نظر شده است. این جمله در برخی از فرکانس ها بیشتر از دیگر فرکانس ها تاثیر می‌گذارد و در صورت عدم حذف آن می‌تواند باعث محوشدگی و کاهش رزولوشن تصویر شود.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
