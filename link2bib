@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 import sys
 #from urllib3 import urlopen
-from lxml.html import parse
+# from lxml.html import parse
 from datetime import datetime
 
 s = r'''@misc{%s,   
@@ -13,10 +13,19 @@ s = r'''@misc{%s,
 
 url = sys.argv[1]
 title = ''
+# try:
+#     title = parse(url).find(".//title").text
+# except:
+#     pass
+
+import urllib.request
 try:
-    title = parse(url).find(".//title").text
+    from bs4 import BeautifulSoup
 except:
-    pass
+    from BeautifulSoup import BeautifulSoup
+    
+soup = BeautifulSoup(urllib.request.urlopen(url), 'lxml')
+title = soup.title.string 
 
 name = url.split('/')
 name = [i for i in name if i not in (None, '')]

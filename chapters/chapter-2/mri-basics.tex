@@ -40,8 +40,7 @@
 
 
 
-
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 %	\copyrightbox[b]{
 %	\begin{minipage}[c]{0.9\textwidth}
@@ -88,6 +87,45 @@
 \end{figure}
 
 
+\subsection{تولید کنندگان بزرگ دستگاه \mri}
+
+دستگاه های \mri توسط کمپانی های مختلفی در دنیا تولید ‌میشوند. هر یکی از این دستگاه ها ملاحظاتی دارند که با دیگری متفاوت است. در این قسمت صرفا برای شناخت، تعدادی از فروشندگان دستگاه \mri
+\LTRfootnote{MR vendors}
+ نام برده می‌شود و وارد جزئیات این تفاوت ها نمی‌شویم.  
+ شکل \ref{fig:siemens-espree-mri}
+یک دستگاه \mri ساخته شده توسط \lr{SIEMENS}
+را نشان می‌دهد.
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-2/figs/siemens-espree-mri}
+	}{\urlSource{https://is.gd/q4EXoV}} 
+	\removevspace[1]
+	\caption{یک دستگاه \mri ساخت شرکت \lr{SIEMENS}}
+	\label{fig:siemens-espree-mri}
+\end{figure}
+
+
+برخی از مهمترین شرکت های تولید کننده دستگاه \mri در زیر لیست شده اند.
+
+\begin{multicols}{2}
+	\footnotesize
+	\begin{itemize}
+		\item \lr{GE Healthcare}
+		\item \lr{Philips}
+		\item \lr{Siemens Healthcare}
+		\item \lr{Toshiba Medical Systems Corporation}
+		\item \lr{Fujifilm Holdings}
+		\item \lr{Shimadzu Corporation}
+		\item \lr{Carestream Health}
+		\item \lr{Hitachi Medical Corporation}
+		\item \lr{Hologic}
+		\item \lr{Esaote}
+	\end{itemize}
+\end{multicols}
+
+
 \subsection{زبان فنی \mri}
 در حوزه \mri نیز مانند دیگر شاخه های علوم پزشکی و کلا علوم، زبان و عبارت های خاص خود را دارد. بسیاری از این عبارت ها که با حرف \lr{T} شروع می‌شوند ممکن است کمی عجیب و سردم کننده باشد. هرچند در ادامه برخی از آن‌ها را به تفصیل توضیح خواهیم داد اما در ابتدا یک بار با آن ها در این قسمت آشنا می‌شویم. جدول \ref{table:overview-mri-terms}
 برگرفته شده از \cite{book:MRIfromPictureToProton}
@@ -108,15 +146,33 @@
 		\lr{\TtwoStar} & 
 		یکی از مشخصه های بافتی است که در یک میدان مغناطیسی قرار دارد و \textit{زمان آزادسازی اسپین-اسپین آشکار} نامیده می‌شود.	
 		\\
-		\lr{PD} & \\
-		\lr{TR} & \\
-		\lr{TE} & \\
-		\lr{TI} & \\
-		$\alpha$ & \\
-		\lr{{\Tone}w} & \\
-		\lr{{\Ttwo}w} & \\
-		\lr{{\TtwoStar}w} & \\
-		\lr{PDw} & \\\hline
+		\lr{PD} & 
+		یکی از مشخصه های بافت است که چگالی پروتون نامیده می‌شود(ارتباط نزدیکی با محتوای آبی دارد).
+		\\
+		\lr{TR} & 
+		یکی از مشخصه های زمانی اسکن است که زمان تکرار نامیده می‌شود.
+		\\
+		\lr{TE} & 
+		یکی از مشخصه های زمانی اسکن است که زمان وارونگی نامیده می‌شود.
+		\\
+		\lr{TI} & 
+		یکی از مشخصه های زمانی اسکن است که زمان تکرار نامیده می‌شود.
+		\\
+		$\alpha$ & 
+		یکی از پارامتر های اسکن است که زاویه تکان نیز نامیده می‌شود.
+		\\
+		\lr{{\Tone}w} & 
+		توصیفی از کانتراست تصویر است که بستگی شدیدی به خاصیت \Tone بافت دارد.
+		\\
+		\lr{{\Ttwo}w} & 
+			توصیفی از کانتراست تصویر است که بستگی شدیدی به خاصیت \Ttwo بافت دارد.
+		\\
+		\lr{{\TtwoStar}w} & 
+			توصیفی از کانتراست تصویر است که بستگی شدیدی به خاصیت \TtwoStar بافت دارد.
+		\\
+		\lr{PDw} & 
+			توصیفی از کانتراست تصویر است که بستگی شدیدی به خاصیت \lr{PD} بافت دارد.
+		\\\hline
 	\end{tabularx}
 	\caption{عبارت مهم در \mri}
 	\label{table:overview-mri-terms}
@@ -248,6 +304,9 @@
 \LTRfootnote{Nuclear Magnetic Moment} 
 دو مولفه‌ی مقدار و جهت میدان مغناطیسی می‌توان تعریف کرد. به عبارت دیگر یک هسته دارای اسپین را می‌توان به صورت یک آهن‌ربای میکروسکوپیک ریز درنظر گرفت
 (شکل \ref{fig:one-magnet}).
+به این آهنرباهای کوچک ایزوکرومات (اسپینی)
+\LTRfootnote{(spin) isochromats}
+ گفته می‌شود. \cite{SpinEchoMagnetic2013}
 برای یک پروتون یا همان هسته ی \ce{^1_1H}، ممان مغناطیسی $\mu$ و تکانه زاویه‌ای اسپینی
 \LTRfootnote{Spin Angular Momentum}$\Phi$
 با یک ثابت تناسب $\gamma$ به صورت زیر به یک دیگر مرتبط می‌شوند.
@@ -397,9 +456,6 @@
 
 
 \subsubsection{مغناطش شبکه}
-\textbf{مغناطش شبکه} و یا \textbf{مغناطیس‌شوندگی شبکه} 
-\LTRfootnote{Net Magnetization}
-
 
 
 \begin{figure}
@@ -415,6 +471,9 @@
 	\label{fig:net-mag}
 \end{figure}
 
+
+\textbf{مغناطش شبکه} و یا \textbf{مغناطیس‌شوندگی شبکه} 
+\LTRfootnote{Net Magnetization}
 موضوع مهم دیگری است که در \mri مطرح می‌شود.
 مغناطیس شوندگی هر پروتون را می‌توان به عنوان یک بردار در‌نظر گرفت. \textbf{مغناطش شبکه} را می‌توان به‌عنوان برایند آن بردار ها مطابق شکل \ref{fig:net-mag}در نظر گرفت. 
 هر یک از این بردار را می‌توان در راستای میدان به دو مولفه‌ی طولی و عرضی تجزیه نمود. با این مدل‌سازی نیز همان‌طور که پیشتر نیز توضیح داده شد، اکثر مولفه هایی هم‌جهت و خلاف جهت، هم‌دیگر را کنسل می‌کنند و تعداد کمی اسپین های هم‌جهت باقی می‌مانند که اسپین اضافه نام داشتند. اما موله‌عرضی صفر است. چراکه اسپین پروتون‌ها فاز تصادفی دارند و بنابراین برایند آنان صفر می‌شود. این یعنی مغناطش شبکه، مولفه‌ای در راستای عرضی ندارد و صرفا در راستای مولفه‌ی طولی یا همان راستای میدان مغناطیسی خارجی $B_0$ می‌باشد. (شکل \ref{subfig:net-mag-b})
@@ -587,6 +646,8 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	\subfigure[]{\includegraphics[height=0.26\linewidth]{chapters/chapter-2/figs/wave-linear-circular-pol}}
 	\hfill
 	\subfigure[]{\includegraphics[height=0.26\linewidth]{chapters/chapter-2/figs/polcls}}
+	\removevspace[1]
+	\caption{}
 \end{RTLcopyrightBox}
 \label{fig:wave-linear-circular-pol}
 \end{figure}
@@ -698,6 +759,17 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	\caption{}
 	\label{fig:gr}
 \end{figure}
+
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.6\linewidth]{chapters/chapter-2/figs/sampling-freq.bmp}
+	}{\scriptsize\Doi{10.1002/jmri.23639}}
+	\caption{}
+\end{figure}
+
+
 
 \subsubsection{آزادسازی \lr{T1}}
 
@@ -854,22 +926,80 @@ $\hbar = 6.62607004 \times 10^{-34} (\mathrm{m}^2 \mathrm{kg} / \mathrm{s})$
 	\label{fig:3switches-3bulbs}
 \end{figure}
 
-
+\FloatBarrier
 \subsection{\kspace}
 
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-2/figs/kspace.bmp}
+	}{\scriptsize\Doi{10.1002/jmri.23639}}
+\end{figure}
+
+
+
+\subsubsection{رزولوشن و میدان دید}
+
+
+\begin{figure}[t!]
+	\centering
+	\begin{copyrightBox}{0.8\linewidth}{\scriptsize\Doi{10.1017/9781107706958}}
+		\subfigure[]{
+			\includegraphics[width=0.45\linewidth]{chapters/chapter-3/figs/kFOV-Dk}
+			\label{subfig:kfov-dk}}
+		\hfill
+		\subfigure[]{
+			\includegraphics[width=0.375\linewidth]{chapters/chapter-3/figs/FOV-Dw}
+			\label{subfig:fov-dw}}
+	\end{copyrightBox}
+	\removevspace[1]
+	\caption{}
+\end{figure}
+
+
+
+\removevspace
+\begin{subequations}\label{eq:FOV-kFOV}
 \begin{align}
-	\Delta K = & \dfrac{1}{\rltext{FOV}} \\
-	 k\rltext{FOV} = & (+k_{\max}) - (-k_{\max}) = 2 k_{\max} \\
+	\Delta k = & \dfrac{1}{\rltext{FOV}} \\
+	 k\rltext{FOV}_w = & (+k_{w,\max}) - (-k_{w,\max}) = 2 k_{w,\max} \\
 	 = & N / \lrtext{FOV} = 1 / \Delta w
 \end{align}
+\end{subequations}
+
+بیشسنه مقدار رزولوشن به وسیله‌ی اندازه‌ی پیکسل ها داده می‌شود که برابر است با:
+
+\removevspace
+\begin{subequations}
+\begin{align}
+\Delta x &= \dfrac{1}{\gammabar . G_\mathrm{FE} . M . \Delta t} \\ 
+\Delta y &= \dfrac{1}{\gammabar . \Delta G . N . \tau}
+\end{align}
+\end{subequations}
+
+
+اندازه ابعاد تصویر یا همان میدان دید (\lr{FOV})
+نیز از رابطه‌ی  \ref{eq:FOV-kFOV}
+به صورت زیر محاسبه می‌شود.
+
+\removevspace
+\begin{subequations}\label{eq:fov-res-kspace}
+\begin{align}
+	\lrtext{FOV}_{\mathrm{FE}} &= M . \Delta x = \dfrac{1}{\gammabar . G_\mathrm{FE} . \Delta t} \\ 
+	\lrtext{FOV}_{\mathrm{PE}} &= N . \Delta y = \dfrac{1}{\gammabar . \Delta G . \tau} \\
+	k\lrtext{FOV}_{\mathrm{FE}} &= M . \Delta k_x = 2 k_{x, \max} = \frac{1}{\Delta x}\\
+	k\lrtext{FOV}_{\mathrm{PE}} &= N . \Delta k_y = 2 k_{y, \max} = \frac{1}{\Delta y}
+\end{align}
+\end{subequations}
 
 \FloatBarrier
-\subsection{ارتباط \kspace با کد کردن فرکانس و فاز}
+\subsubsection{ارتباط \kspace با کد کردن فرکانس و فاز}
 پس از تحریک کردن یک اسلایس، گرادیان های فاز و فرکانس اعمال می‌شود تا سیگنال های \mr را جهت بدست آوردن فرکانس های فضایی بکار بگیریم. برای این منظور ابتدا، المان  $\partial s$  از سیگنال را در نظر بگیرید. 
 
 \removevspace
 \begin{equation}\label{eq:element-fe}
-	\mathbf{\partial} s(t) = \rho(x) . \exp(\frac{-t}{T_2^*}) .  \exp(i\gamma.x.G_{\lrtext{FE}}.t). \mathbf{d}x
+	\mathbf{\partial} s(t) = \rho(x) . \exp(\frac{-t}{T_2^*}) .  \exp(i\gamma.x.G_{\lrtext{FE}}.t). \mathrm{d}x
 \end{equation}
 
 در این رابطه $\rho(x)$
@@ -941,13 +1071,6 @@ $k_{\lrtext{PE}}$
 \end{equation}
 
 بنابراین $k$ در رابطه \ref{eq:def-kpe-kfe} همان فرکانس های فضایی مدنظر هستند و وجه تسمیه \kspace نیز همین موضوع است. البته توجه داشته باشید که معادله \ref{eq:dft-rho} کاملا صحیح نمی‌باشد چرا که از جمله میراشونده با نرخ \TtwoStar در معادله \ref{eq:rel-dft-kspace} صرف نظر شده است. این جمله در برخی از فرکانس ها بیشتر از دیگر فرکانس ها تاثیر می‌گذارد و در صورت عدم حذف آن می‌تواند باعث محوشدگی و کاهش رزولوشن تصویر شود.
-
-
-
-
-
-
-
 
 
 

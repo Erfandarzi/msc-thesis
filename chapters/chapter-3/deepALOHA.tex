@@ -1,3 +1,4 @@
+\FloatBarrier
 \section{یادگیری عمیق}\label{ch:literature-review|sec:deep-learning}
 
 
@@ -50,10 +51,12 @@ $x \colon \mathbb{R}^2 \rightarrow \mathbb{R} $
 	\hat{x}(\mathbf{k})=\mathcal{F}[x](\mathbf{k}):=\int_{\mathbb{R}^{d}} e^{-\iota \mathbf{k} \cdot \mathbf{r}} x(\mathbf{r}) d \mathbf{r}
 \end{equation}
 
+\removevspace
 \begin{equation}
 	\mathbf{y} = \mathcal{P}_{\Lambda}[\hat{\mathbf{x}}]
 \end{equation}
 
+\removevspace
 \begin{equation}
 	\left[\mathcal{P}_{\Lambda}[\hat{\mathbf{x}}]\right]_{i}= 
 	\begin{cases}
@@ -62,6 +65,7 @@ $x \colon \mathbb{R}^2 \rightarrow \mathbb{R} $
 	\end{cases}
 \end{equation}
 
+\removevspace
 \begin{equation}
 	\widehat{\mathbf{x}}=[\hat{x}[0] \quad \cdots \quad \hat{x}[N-1]], \qquad \text { where } \quad \hat{x}[i]=\widehat{x}\left(\mathbf{k}_{i}\right)
 \end{equation}
@@ -111,6 +115,7 @@ $x \colon \mathbb{R}^2 \rightarrow \mathbb{R} $
 استفاده می‌کنیم، مساعد است که یک تابع هزینه را روی حوزه تصویر تشکیل دهیم از این رو الگوریتم \lr{ALOHA} را به شکل زیر ویرایش می‌کنیم.
 
 
+\removevspace
 \begin{subequations}\label{eq:aloha-modify1}
 	\begin{align}
 		\min_{\hat{z}\in\mathbb{C}^N} \ \  & \| x - \F^{-1}{\hat{z}}\| \\
@@ -137,6 +142,7 @@ $\Re(z) = [\mathcal{Re}(z) \mathcal{Im}(z)]$
 در این صورت می‌توان معادله \ref{eq:aloha-modify1}
 را به صورت زیر با نویسی نمود.
 
+\removevspace
 \begin{subequations}
 	\begin{align}
 		\min_{\hat{z}\in\mathbb{C}^N} \ \  & \| x - \F^{-1}{\hat{z}}\| \\
@@ -169,10 +175,12 @@ $\Phi\tilde{\Phi}^T = I_{N}$
 
 
 
+\removevspace
 \begin{equation}
 	\mathcal{H}_{d|2}(\Re(\hat{z})) = \Phi\tilde{\Phi}^T \mathcal{H}_{d|2}(\Re(\hat{z})) \Psi\tilde{\Psi}^T = \Phi \mathbf{C} \tilde{\Psi}^T \\
 \end{equation}
 که در آن
+\removevspace
 \begin{equation}
 	\mathbf{C} \coloneqq \tilde{\Phi}^T \mathcal{H}_{d|2}(\Re(\hat{z})) \Psi
 \end{equation}
@@ -180,6 +188,7 @@ $\Phi\tilde{\Phi}^T = I_{N}$
 حال می‌توان فضای برداری $\mathcal{H}$
 را به صورت زیر تعریف کرد.
 
+\removevspace
 \begin{equation}
 	\begin{aligned}
 		\mathcal{H}(\boldsymbol{\Psi}, \tilde{\boldsymbol{\Psi}})=&\left\{\mathbf{z} \in \mathbb{C}^{N} \mid \Re[\mathbf{z}]=\boldsymbol{\Phi}^{\top}(\mathbf{C} \circledast g(\tilde{\boldsymbol{\Psi}}))\right.\\
@@ -189,12 +198,13 @@ $\Phi\tilde{\Phi}^T = I_{N}$
 
 با این تعریف میخواهیم بهینه سازی را صرفا بر روی این فضا حل کنیم. بنابراین این مسیله به صورت زیر قابل بازنویسی است.
 
+\removevspace
 \begin{subequations}\label{eq:P'A}
 	\begin{align}
 		(P'_A) \quad
 		\min_{\hat{z}\in\mathbb{\mathcal{H}(\psi, \tilde{\psi})}} \ \
 		\min_{\Psi, \tilde{\Psi}} \ \  & \| x - \F^{-1}{\hat{z}}\| \\
-		\lrtext{s.t.} \qquad  & \Rho_\Lambda([\hat{x}]) = \Rho_\Lambda([\hat{z}])
+		\lrtext{s.t.} \quad  & \Rho_\Lambda([\hat{x}]) = \Rho_\Lambda([\hat{z}])
 	\end{align}
 \end{subequations}
 

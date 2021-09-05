@@ -98,8 +98,14 @@
 }
 
 
+\usepackage{color}
+\usepackage[table, svgnames, dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+\tcbuselibrary{listings}
 
-\usepackage{listings, color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{lightgray}{rgb}{0.8,0.8,0.8}
@@ -107,7 +113,7 @@
 
 \lstset{frame=tBLr,
 	%	frameround=fttt,
-	language=Matlab,
+	language=Python,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
@@ -130,3 +136,63 @@
 	breakatwhitespace=true,
 	tabsize=4
 }
+
+
+
+\definecolor{shadecolor}{gray}{0.95}
+\definecolor{captionbox}{cmyk}{0.43, 0.35, 0.35,0.01}
+
+
+\lstdefinelanguage{text}{
+	keywords={},
+}
+\newtcblisting[auto counter]{wgetlisting}[2][]{%
+	listing only,
+	breakable,
+	top=0.5pt,
+	bottom=0.5pt,
+	colback=red!5!white,
+	colframe=red!25,
+	left=6mm,
+	sharp corners,
+	boxrule=0pt,
+	bottomrule=1pt,
+	toprule=1pt,
+	enhanced jigsaw,
+	listing options={%style=tcblatex,
+		frame=none,
+		language=text,
+		xleftmargin=1pt,
+		xrightmargin=1pt,
+		aboveskip=0mm,
+		belowskip=0mm,
+		lineskip=-0.15em,
+		framexbottommargin=0pt,
+		%
+		numbers=left,
+		numberstyle=\tiny\color{red!75!black},
+		moredelim={[is][keywordstyle]{@@}{@@}},
+		basicstyle=\normalsize\ttfamily,
+		breaklines=true,
+		breakautoindent=false,
+		breakindent=0pt,
+		escapeinside={(*}{*)},
+	},%
+	lefttitle=0pt,
+	coltitle=black,
+	colbacktitle=white,
+	title={Listing \thetcbcounter:  #2},#1%  
+	borderline north={1pt}{14.4pt}{red!25,dashed},
+}
+% 
+
+%https://tex.stackexchange.com/questions/476100/lstlisting-line-number-gaps
+\makeatletter
+\let\orig@lstnumber=\thelstnumber
+\newcommand\lstsetnumber[1]{\gdef\thelstnumber{#1}}
+\newcommand\lstresetnumber{\global\let\thelstnumber=\orig@lstnumber}
+\newcommand\bashnumbering{\lstsetnumber{\texttt{>>}}}
+\makeatother
+
+
+
