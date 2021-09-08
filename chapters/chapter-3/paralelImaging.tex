@@ -153,18 +153,31 @@ $T_R$
 صحبت کرد.
 حساسیت یک کانال دریافت کننده تکی در یک آرایه به سیگنال‌هایی که از یک منطقه مکانی خاص می‌آیند، محدود می‌شود که
 در شکل \ref{fig:coil-sensivity}
-قابل مشاهده است. این حساسیت معمولا به شئ درون سیم‌پیچ های دریافت کننده بستگی دارد و بنابراین از یک بیمار به بیمار دیگر می‌تواند تغییر کند.
+قابل مشاهده است. این حساسیت معمولا به شئ درون سیم‌پیچ های دریافت کننده بستگی دارد و بنابراین از یک بیمار به بیمار دیگر می‌تواند تغییر کند. 
 
-
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 	\copyrightbox[b]{
 		\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/coil-sensivity-direction}
-		\label{fig:coil-sensivity-direction}
 	}{\doiSource{10.1002/jmri.23639}}
 	\removevspace[1]
 	\caption{}
+	\label{fig:coil-sensivity-direction}
 \end{figure}
+
+پروفایل های حساسیت، میدان دید مطلوب را پوشش می‌دهد. هنگامی که یک اسکن با چندین سیم پیچ دریافت کننده انجام می‌شود، تصاویر نتیجه شده از هر سیم‌پیچ باید با یکدیگر ترکیب شوند. این کار می‌تواند با استفاده از \textbf{مجموع مربعات} (و یا سایر تکنیک هایی که یک سیگنال همگن را پس از ترکیب نتیجه می‌دهند) انجام داد.
+
+آرایه های متداول در  کاربردهای کلینیکالی از 4 تا بیشتر از 32 کانال مستقل را شامل می‌شود و حساسیت های متنوعی را در دو یا سه بعد دارند. از آنجایی که تصویربرداری موازی به این تفاوت های حساسیت سیم‌پیچ ها تکیه دارد، سرعت بخشیدن صرفا در جهت تغییرات حساسیت می‌تواند اعمال شود. برای مثال اگر پنج سیم پیچ مانند شکل
+ \ref{fig:coil-sensivity-direction} 
+در یک خط قرار گیرند، صرفا در جهت خط آرایه(جهتی که حساسیتی بین سیم پیچ ها تغییر می‌کند)، سرعت بخشیدن می‌تواند اتفاق بیفتد. \cite{ParallelMRImaging2012}
+
+
+
+شکل \ref{fig:coil-sensivity-product}
+که چگونه یک حساسیست ناهمگن سیم‌پیچ می‌تواند یک تصویر \mr را تغییر دهد. به زبان ریاضی، هر نقطه در تصویر شئ در نقطه متناظرش در نقشه حساسیت
+\LTRfootnote{Sensivity Map}
+ضرب می‌شود. بنابراین نقطه‌ A و B در تصویر سمت راست در شکل \ref{fig:coil-sensivity-product}
+به ترتیب با $A=C_A \times I_A$ و $B=C_B \times I_B$ برابر هستند. بنابراین تصویر هر سیم‌پیچ برابر با ضرب تصویر شئ در نقشه‌ی حساسیت آن سیم پیچ می‌باشد.
 
 
 \begin{figure}[t!]
@@ -174,6 +187,7 @@ $T_R$
 	}{\doiSource{10.1002/jmri.23639}}
 	\removevspace[1]
 	\caption{}
+	\label{fig:coil-sensivity-product}
 \end{figure}
 
 
@@ -181,9 +195,41 @@ $T_R$
 
 
 
+\subsection{تصویربرداری موازی جزئی با حساسیت های محلی شده(\lr{PILS})}
+
+
+تصویربرداری موازی جزئی با حساسیت های محلی شده
+\LTRfootnote{Partially Parallel Imaging With Localized Sensitivities}(\lr{PILS})
+
+\cite{PILS-Griswold2000}
+
+\begin{figure}
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.8\linewidth]{chapters/chapter-3/figs/PILS-rec}
+	}{\doiSource{10.1002/jmri.23639}}
+	\removevspace[1]
+	\caption{}
+	\label{fig:pils-rec}
+\end{figure}
 
 
 
+
+\subsection{کدکردن حساسیت (\lr{SENSE})}
+
+\LTRfootnote{SENSivity Encoding}(\lr{SENSE})
+\cite{SENSE-1999}
+
+\subsection{\lr{SMASH}}
+
+\LTRfootnote{SiMultaneous Acquisition of Spatial Harmonics}(\lr{SMASH})
+
+\subsection{\lr{GRAPPA}}
+
+\LTRfootnote{Generalized Autocalibrating Partially Parallel Acquisitions}(\lr{GRAPPA})
+
+\cite{GRAPPA-Griswold2002}
 
 
 
