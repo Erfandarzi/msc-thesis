@@ -190,41 +190,155 @@ $T_R$
 	\label{fig:coil-sensivity-product}
 \end{figure}
 
+\subsection{یک مثال ساده از \lr{pMRI}}
+
+فرض کنید یک آرایه از $N_c = 2$ سیم‌پیچ دریافت کننده در اختیار داریم که به صورت خیلی ایده‌آل هریک از آن ها دقیقا نیمی از میدان دید \lr{FOV}
+را پوشش می‌دهد. مطابق شکل \ref{subfig:pMRI-rec-c}
+سیم‌پیچ اول صرفا نیمه‌ی بالایی شئ و سیم‌پیچ دوم نیمه پایینی شئ را شناسایی می‌کند. با این تکنیک می‌توان با ضریب کاهش 2، تعداد خطوط کدکردن فاز را کاهش داد. چرا که مطابق شکل \ref{subfig:pMRI-rec-b}، سیم پیچ اول سیگنال هایی که نیمه پایینی شئ می‌آیند را دریافت نمی‌کند و سیم‌پیچ دوم نیز سیگنال هایی که نیمه بالایی شئ می‌آیند را دریافت نمی‌کند. بنابراین می‌توان این دو نیمه را همزمان با یکدیگر اندازه‌گیری کرد که باعث می‌شود زمان لازم برای استخراج داده نصف شود. در گام آخر نیز به سادگی دو نیمه بدست آورده را در کنار یکدیگر قرار می‌دهیم و یک تصویر با رزولوشن و میدان دید کامل بدست می‌آوریم. در تصویر خروجی نسبت سیگنال به نویز با ضریب $\sqrt{R}$ و تعداد خطوط کدکردن فاز نیز با فاکتور کاهش $R$ کاهش می‌یابد.
 
 
 
+\begin{figure}[t!]
+	\centering
+	\begin{RTLcopyrightBox}{\linewidth}{\doiSource{10.1002/jmri.23639}}
+		\subfigure[]{
+			\includegraphics[width=0.15\linewidth]{chapters/chapter-3/figs/pMRI-rec-a}
+			\label{subfig:pMRI-rec-a}}
+		\hfill
+		\subfigure[]{
+			\includegraphics[width=0.15\linewidth]{chapters/chapter-3/figs/pMRI-rec-b}
+			\label{subfig:pMRI-rec-b}}
+		\hfill
+		\subfigure[]{
+			\includegraphics[width=0.15\linewidth]{chapters/chapter-3/figs/pMRI-rec-c}
+			\label{subfig:pMRI-rec-c}}
+		\hfill
+		\subfigure[]{
+			\includegraphics[width=0.15\linewidth]{chapters/chapter-3/figs/pMRI-rec-d}
+			\label{subfig:pMRI-rec-d}}
+		\hfill
+		\subfigure[]{
+			\includegraphics[width=0.15\linewidth]{chapters/chapter-3/figs/pMRI-rec-e}
+			\label{subfig:pMRI-rec-e}}
+	\end{RTLcopyrightBox}
+	\removevspace[2.5]
+	\caption{مثال ساده ای از \lr{pMRI}}
+	\label{fig:pMRI-rec}
+\end{figure}
+
+%\begin{figure}
+%	\centering
+%	\copyrightbox[b]{
+%		\includegraphics[width=0.8\linewidth]{chapters/chapter-3/figs/PILS-rec}
+%	}{\doiSource{10.1002/jmri.23639}}
+%	\removevspace[1]
+%	\caption{}
+%	\label{fig:pils-rec}
+%\end{figure}
 
 
+این ساده سازی و ایده‌آل نگری یک جهان واقعی را بازتاب نمی‌دهد چرا که در واقعیت حساسیت‌های $C$ 
+به صورت نرم
+\LTRfootnote{Smooth}
+بر روی میدان دید \lr{FOV}
+تغییر می‌کنند و به صورت عادی بایکدیگر در برخی از محتوا اشتراک دارند. اما به‌هر حال این مثال ساده چند خصوصیت و الزامات مهم تصویربرداری موازی را نشان می‌دهد.
+\cite{SMASH-SENSE-PILS-GRAPPA--2004}
+
+\begin{enumerate}
+	\item
+	چندین سیم‌پیچ دریافت کننده با حساسیت های مختلف بر روی \lr{FOV}
+باید وجود داشته باشند.
+	\item
+هر کدام از سیم‌پیچ ها بایستی مسیر خود را تهیه کنند.
+\item
+در بازسازی تصویربرداری موازی، اطلاعات دقیقی از حساسیت های سیم‌پیچ های مختلف لازم است.
+\item
+نسبت سیگنال به نویز در یک تصویربرداری موازی، حداقل با ضریب $\sqrt{R}$ کاهش می‌یابد.
+\end{enumerate}
+
+\FloatBarrier
 \subsection{تصویربرداری موازی جزئی با حساسیت های محلی شده(\lr{PILS})}
 
 
-تصویربرداری موازی جزئی با حساسیت های محلی شده
-\LTRfootnote{Partially Parallel Imaging With Localized Sensitivities}(\lr{PILS})
-
+\textit{تصویربرداری موازی جزئی با حساسیت های محلی شده}
+\LTRfootnote{partially Parallel Imaging with Localized Sensitivities}(\lr{PILS})
+که در سال 2000 معرفی شده است
 \cite{PILS-Griswold2000}
+، ملاحظات قبلی را به شرایط جهان واقعی گسترش می‌دهد.
+مطابق شکل \ref{fig:pils-rec-image}
+هر یک از سیم پیچ های دریافت کننده، حساسیتی کاملا محلی دارند بطوریکه در یک منطقه متمایز $Y_c$ و در باقی جاها صفر است و بنابراین هریک از آن ها یک منطقه‌ی متمایز از \lr{Fov} شئ را تحت پوشش قرار می‌دهند.
+
+
+
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-3/figs/PILS-rec-image}
+	}{\doiSource{10.1097/01.rmr.0000136558.09801.dd}}
+	\removevspace[1]
+	\caption{روش \lr{PILS}}
+	\label{fig:pils-rec-image}
+\end{figure}
+
+یک تصویربرداری موازی همراه با کاهش در جهت کدکردن فاز، تصاویر جزئی متناوبی را نتیجه می‌دهد. مادامی که \lr{FOV} کاهش‌یافته $Y_i$ بیشتر از منطقه‌ی محدود حساسیت انتخاب شود($Y_c < Y_i < Y$)، آن تصاویر جزئی به صورت کاملا جداگانه از یکدیگر در \lr{FOV} ظاهر می‌شوند.
+به وسیله دانستن مکان دقیق هریک از سیم‌پیچ ها درون یک آرایه خطی، می‌توانیم تصویر جزئی متناظرش را در مکان درست استخراج کرد و در نهایت این زیر تصویر ها بایکدیگر ادغام می‌شوند و یک تصویر کامل با رزولوشن کامل را نتیجه می‌دهند.
+\cite{SMASH-SENSE-PILS-GRAPPA--2004}
+
+
+\lr{PILS}
+محدود به ترکیب کافی سیم‌پیچ ها می‌شود به طوری که هرکدام از سیم پیج ها درون میدان دید \lr{FOV} و در جهت کدکردن فاز قرار داشته باشند.
+\lr{PILS}
+به \lr{SNR}
+بهینه دست پیدا می‌کند که یعنی \lr{SNR}
+صرفا با ضریب مورد انتظار $\sqrt{R}$ کاهش می‌یابد و \lr{SNR} تلفات دیگری ندارد چرا که تصویر نهایی از ورژن های شیفت یافته ی تصاویری با \lr{FOV}
+کاهش یافته ساخته شده است. این واضح است که \lr{PILS}
+شدیدا به سیم‌پیچ هایی با حساسیت های محلی احتیاج دارد در بخش بعدی با روش های عمومی‌تر آشنا می‌شویم.
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
+\subsection{کدکردن حساسیت (\lr{SENSE})}
+
+روش \textit{کدکردن حساسیت}
+\LTRfootnote{SENSivity Encoding}(\lr{SENSE})
+در سال 1999 معرفی شد\cite{SENSE-1999} و یکی از روش هایی است که در کاربرد های تجاری مورد استفاده قرار می‌گیرد. 
+
+
+روش باز سازی \lr{SENSE}
+را می‌توان به‌طور خلاصه به عنوان یک الگوریتم \textit{بازکردن}
+\LTRfootnote{Unfolding}
+در حوزه‌ی تصویر، دسته بندی کرد.
+
+
 
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
-		\includegraphics[width=0.8\linewidth]{chapters/chapter-3/figs/PILS-rec}
-	}{\doiSource{10.1002/jmri.23639}}
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-3/figs/SENSE-rec-image}
+	}{\doiSource{10.1097/01.rmr.0000136558.09801.dd}}
 	\removevspace[1]
-	\caption{}
-	\label{fig:pils-rec}
+	\caption{روش \lr{SENSE}}
+	\label{fig:sense-rec-image}
 \end{figure}
 
 
 
 
-\subsection{کدکردن حساسیت (\lr{SENSE})}
 
-\LTRfootnote{SENSivity Encoding}(\lr{SENSE})
-\cite{SENSE-1999}
-
+\FloatBarrier
 \subsection{\lr{SMASH}}
 
 \LTRfootnote{SiMultaneous Acquisition of Spatial Harmonics}(\lr{SMASH})
 
+\FloatBarrier
 \subsection{\lr{GRAPPA}}
 
 \LTRfootnote{Generalized Autocalibrating Partially Parallel Acquisitions}(\lr{GRAPPA})
