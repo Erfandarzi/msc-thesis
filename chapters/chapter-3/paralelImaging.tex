@@ -311,14 +311,6 @@ $T_R$
 \LTRfootnote{SENSivity Encoding}(\lr{SENSE})
 در سال 1999 معرفی شد\cite{SENSE-1999} و یکی از روش هایی است که در کاربرد های تجاری مورد استفاده قرار می‌گیرد. 
 
-
-روش باز سازی \lr{SENSE}
-را می‌توان به‌طور خلاصه به عنوان یک الگوریتم \textit{بازکردن}
-\LTRfootnote{Unfolding}
-در حوزه‌ی تصویر، دسته بندی کرد.
-
-
-
 \begin{figure}
 	\centering
 	\copyrightbox[b]{
@@ -330,8 +322,78 @@ $T_R$
 \end{figure}
 
 
+روش باز سازی \lr{SENSE}
+را می‌توان به‌طور خلاصه به عنوان یک الگوریتم \textit{بازکردن}
+\LTRfootnote{Unfolding}
+در حوزه‌ی تصویر، دسته بندی کرد.
+\cite{SMASH-SENSE-PILS-GRAPPA--2004}
+به شکل \ref{fig:sense-rec-image}
+دقت کنید. 
+ تصویر ایجاد شده در هر یک سیم‌پیچ ها را می‌توان به صورت مجموع حاصل ضرب چگالی پروتون (تصویر حقیقی) در میزان حساسیت سیم‌پیچ در آن ناحیه نوشت. به عبارت دقیق تر، معادله‌ی زیر برای تصویر کاهش یافته‌ی سیم پیچ $k$اٌم برقرار است.
+
+\removevspace
+\begin{equation}\label{eq:I_k=sum_0^nA}
+	\begin{aligned}
+		I_k(x,y) = & C_k(x, y) \rho(x,y) + C_k(x, y + \Delta y) \rho(x, y + \Delta y) \\
+				   & + \dots + C_k(x, y + n_A \Delta y) \rho(x, y + n_A \Delta y) \\
+				 = & \sum_{n=0}^{n_A} C_k(x, y + n \Delta y) \rho(x, y + n \Delta y )
+	\end{aligned}
+\end{equation}
+
+که در آن $n_A$ تعداد سیگنال های اختلاطی است که از مکانی به مکان دیگر متفاوت است و به اندازه های شئ مورد تصویر برداری، بستگی دارد. اگر ابعاد شئ دقیقا میدان دید بازسازی
+ $\lrtext{FOV}_{\lrtext{rec}}$
+ را پر کند، آنگاه $n_A = R$ در آن نقاط می‌شود و در باقی موارد همواره $n_A \le R$ می‌باشد. 
+ همچنین $\Delta y$ نیز \textit{فاصله‌ی اختلاطی} 
+\LTRfootnote{aliasing distance}
+می‌باشد:
+
+\removevspace
+\begin{equation}
+	\Delta y = \dfrac{\lrtext{FOV}_{\lrtext{rec}}}{R}
+\end{equation}
+
+اگر $N_c$ تا سیم‌پیچ داشته باشیم، 
+معادله \ref{eq:I_k=sum_0^nA}
+را به ازای $k$ های مختلف (از 1 تا $N_c$)
+به صورت همزمان در یک ماتریس نوشت.
 
 
+\begin{equation}\label{eq:matrix:I=Crho}
+	\rescaleequation{0.85}{
+	\left[\begin{array}{c}
+		I_1(x, y) \\
+		I_2(x, y) \\
+		\vdots \\
+		I_{N_c}(x, y)
+	\end{array}\right]
+	=\left[\begin{array}{cccc}
+		C_{1}(x, y) & C_{1}(x, y+\Delta y) & \cdots & C_{1}\left(x, y+n_{A} \Delta y\right) \\
+		C_{2}(x, y) & C_{2}(x, y+\Delta y) & \cdots & C_{2}\left(x, y+n_{A} \Delta y\right) \\
+		\vdots & \vdots & \ddots & \vdots \\
+		C_{L}(x, y) & C_{L}(x, y+\Delta y) & \cdots & C_{L}\left(x, y+n_{A} \Delta y\right)
+	\end{array}\right]
+	.
+	\left[\begin{array}{c}
+		\rho(x, y) \\
+		\rho(x, y+\Delta y) \\
+		\vdots \\
+		\rho\left(x, y+n_{A} \Delta y\right)
+	\end{array}\right]}
+\end{equation}
+
+و بنابراین معادله‌ی 
+\ref{eq:matrix:I=Crho}
+را می‌توان با نماد ساده شده زیر نوشت.
+
+\removevspace
+\begin{equation}
+	\vec{I}_{N_c\times1} = \mathbf{C}_{N_c \times n_A} . \vec{\rho}_{n_A\times1}
+\end{equation}
+
+\removevspace
+\begin{equation}
+	\vec{\rho} = \mathbf{C}^\dagger . \vec{I}
+\end{equation}
 
 \FloatBarrier
 \subsection{\lr{SMASH}}

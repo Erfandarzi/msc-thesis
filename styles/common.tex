@@ -305,3 +305,9 @@ Path=styles/fonts/
 \newcommand{\f}[2]{$\frac{#1}{#2}$}
 \newcommand{\rltext}[1]{\text{\rl{#1}}}
 \newcommand{\lrtext}[1]{\text{\lr{#1}}}
+
+
+
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+\newcommand\rescaleequation[2]{\resizebox{#1\hsize}{!}{$#2$}}
