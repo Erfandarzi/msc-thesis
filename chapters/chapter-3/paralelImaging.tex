@@ -329,7 +329,7 @@ $T_R$
 \cite{SMASH-SENSE-PILS-GRAPPA--2004}
 به شکل \ref{fig:sense-rec-image}
 دقت کنید. 
- تصویر ایجاد شده در هر یک سیم‌پیچ ها را می‌توان به صورت مجموع حاصل ضرب چگالی پروتون (تصویر حقیقی) در میزان حساسیت سیم‌پیچ در آن ناحیه نوشت. به عبارت دقیق تر، معادله‌ی زیر برای تصویر کاهش یافته‌ی سیم پیچ $k$اٌم برقرار است.
+ تصویر ایجاد شده در هر یک سیم‌پیچ ها را می‌توان به صورت مجموع حاصل ضرب چگالی پروتون (تصویر حقیقی) در میزان حساسیت سیم‌پیچ در آن ناحیه نوشت. به عبارت دقیق تر، معادله‌ی زیر برای تصویر کاهش یافته‌ی سیم پیچ $k$اُم برقرار است.
 
 \removevspace
 \begin{equation}\label{eq:I_k=sum_0^nA}
@@ -384,38 +384,60 @@ $T_R$
 و بنابراین معادله‌ی 
 \ref{eq:matrix:I=Crho}
 را می‌توان با نماد ساده شده زیر نوشت.
+\cite{book:MRIfromPictureToProton}
 
 \removevspace
 \begin{equation}
 	\vec{I}_{N_c\times1} = \mathbf{C}_{N_c \times n_A} . \vec{\rho}_{n_A\times1}
 \end{equation}
 
+حال به یک دستگاه معادلات خطی تبدیل شود. جواب بهینه برای این معادله را می‌توان با عملیات شبه‌وارون
+\LTRfootnote{Pseudo Inverse}
+پیدا کرد. همچنین باید توجه داشت که
 $n_A \le R \le N_c$
+برقرار است.(هرچند $R$ در این‌جا می‌تواند بیشتر از $N_c$ نیز شود تا جایی‌که $n_A$ با $N_c$ برابر شود.)
 
 \removevspace
-\begin{equation}
-	\vec{\rho} = \mathbf{C}^\dagger . \vec{I}
+\begin{equation}\label{eq:rho=CdaggerI}
+	\vec{\rho} = \mathbf{C}^\dagger . \vec{I} = (\mathbf{C}^H \mathbf{C})^{-1}\mathbf{C}^H . \vec{I}
 \end{equation}
 
 
+برای \textit{باز کردن}
+تصویر اختلاطی کافیست که معادله‌ی \ref{eq:rho=CdaggerI}
+را به ازای تمامی نقاط اجرا کنیم. بر خلاف روش \lr{PILS}
+در روش \lr{SENSE}
+برای تنظیمات دلخواه سیم‌پیچ ها می‌توان پردازش موازی را انجام داد اما هزینه آن کاهش اضافی \lr{SNR} است که به هندسه‌ی آرایه‌ای از سیم‌پیچ ها بستگی دارد. 
+\cite{SMASH-SENSE-PILS-GRAPPA--2004}
+
+\removevspace
+\begin{equation}
+	\lrtext{SNR}_{\lrtext{SENSE}} = \dfrac{\lrtext{SNR}_{\lrtext{full}}}{g.\sqrt{R}} 
+\end{equation}
+
+دلیل کاهش \lr{SNR} با ضریب $\sqrt{R}$ پیشتر توضیح داده شده است اما یک ضریب اضافی $g$ نیز وجود دارد که 
+\textit{فاکتور هندسه}\LTRfootnote{geometry factor}
+و یا \textit{فاکتور $g$}
+\LTRfootnote{g-factor}
+، نامیده می‌شود و همواره بیشتر و یا مساوی با 1 مقدار دارد. اگر حساسیت دو سیم‌پیچ دریافت کننده به شدت به یکدیگر همبسته باشند، تصاویر اختلاطی سخت تر از یکدیگر جدا شده و باعث کاهش \lr{SNR}
+ می‌شود. هر چند این مشکل خودش را در معادله‌ی \ref{eq:rho=CdaggerI}
+خود را نشان نداده است اما در کاهش \lr{SNR}
+ظاهر می‌شود و از پیکسلی به پیکسل دیگر تغییر می‌کند و معمولا در مرکز تصویر مقادیر بیشتری را دارد چراکه در آنجا تعداد بیشتری از تصاویر همپوشانی دارند و حساسیت سیم‌پیچ های دریافت کننده شبیه به هم‌دیگر است.
 
 
+مشکل اصلی بازسازی به روش \lr{SENSE}
+این است که به حساسیت دقیق سیم‌پیچ ها احتیاج دارد. هرگونه خطایی در نقشه حساسیت سیم‌پیچ ها باعث ایجاد آرتیفکت هایی به شکل \textit{اختلاطِ باقی‌مانده} در تصویر بازسازی شده، می‌شود.
+\cite{ParallelMRImaging2012}
 
+پروفایل های حساسیت سیم پیچ های مختلف به مکان آن ها نسبت به آناتومی شئ مورد تصویربرداری  بستگی دارد و بنابراین نیاز به یک پیش اسکن دارد.
+اگر بیمار حین عملیات تصویربرداری جابجا شود، حساسیت سیم پیچ ها ممکن است تغییر کند و نتایجی توأم با آرتیفک را نتیجه دهد.
+این آرتیفکت ها را می‌توان با جمع آوری اطلاعات لازم برای محاسبه‌ی مجدد نقشه حساسیت سیم‌پیچ ها، تسکین داد. همچنین در نواحی ای که سیگنال ضعیف است مانند ریه ها و سینوس ها، تعیین حساسیت سیم‌پیچ ها به دلیل وجود نویز بالا در این مناطق می‌تواند سخت باشد.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+اگرچه در تعیین نقشه حساسیت، چالش های بالقوه‌ای در روش \lr{SENSE}
+وجود دارد اما \lr{SENSE}
+و ورژن مختلف آن مانند \lr{mSENSE}
+و یا \lr{ASSET}
+به صورت روزانه در اسکن های تسریع یافته‌ی کلینیکی استفاده می‌شود.
 
 \FloatBarrier
 \subsection{\lr{SMASH}}
@@ -425,11 +447,25 @@ $n_A \le R \le N_c$
 
 
 
-
-
-
-
-
+\begin{figure}
+	\centering
+	\begin{RTLcopyrightBox}{\linewidth}{\doiSource{10.1017/9781107706958}}
+	\subfigure[]{
+		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-0}
+		\label{subfig:smash-rec-coils-0}}
+	\hfill
+	\subfigure[]{
+		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-1}
+		\label{subfig:smash-rec-coils-1}}
+	\hfill
+	\subfigure[]{
+		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-pe}
+		\label{subfig:smash-rec-coils-pe}}
+	\end{RTLcopyrightBox}
+	\removevspace
+	\caption{}
+\end{figure}
+%	doi = {10.1017/9781107706958},
 
 
 
