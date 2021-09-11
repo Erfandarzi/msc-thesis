@@ -438,34 +438,97 @@ $n_A \le R \le N_c$
 و ورژن مختلف آن مانند \lr{mSENSE}
 و یا \lr{ASSET}
 به صورت روزانه در اسکن های تسریع یافته‌ی کلینیکی استفاده می‌شود.
+\cite{ParallelMRImaging2012}
 
 \FloatBarrier
 \subsection{\lr{SMASH}}
 
+از نظر تاریخی، 
+\textit{جمع‌آوری داده های هارمونیک های مکانی به طور همزمان}
 \LTRfootnote{SiMultaneous Acquisition of Spatial Harmonics}(\lr{SMASH})
-
-
-
-
-\begin{figure}
+، اولین تکنیک تصویربرداری موازی به حساب می‌آید(سال 1997)
+\cite{SMASH-1997}.
+عبارت زیر هارمونیک های مکانی که در واقع همان فرکانس های مکانی هستند، به این موضوع اشاره دارد که  این الگوریتم در حوزه‌ی \kspace کار می‌کند که بر خلاف دو روش \lr{SENSE}
+و  \lr{PILS}
+می‌باشد. این روش از ترکیب حساسیت سیم‌پیچ های مختلف استفاده می‌کند تا \textit{کد‌کردن فاز مجازی} بسازد.
+برای این منظور ضرایب $n_k^{(m)}$ به گونه‌ای انتخاب می‌شوند تا ترکیبشان یک \textit{پروفایل مرکب حساسیت}
+\LTRfootnote{Compsite sensivity profile}
+ بسازد که به شکل یک سینوسی مرتبه $m$ در مکان تغییر کند یعنی:
+ 
+ \removevspace
+ \begin{equation}\label{eq:Ccomp}
+ 	C^\lrtext{comp}_m(x, y) =  \sum_{k=1}^{N_c}  n_k^{(m)} C_k(x,y) \cong e^{i2\pi m\Delta k_y y}
+ \end{equation} 
+ 
+ 
+ 
+\begin{figure}[t!]
 	\centering
 	\begin{RTLcopyrightBox}{\linewidth}{\doiSource{10.1017/9781107706958}}
 	\subfigure[]{
-		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-0}
+		\includegraphics[width=0.25\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-0}
 		\label{subfig:smash-rec-coils-0}}
 	\hfill
 	\subfigure[]{
-		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-1}
+		\includegraphics[width=0.25\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-1}
 		\label{subfig:smash-rec-coils-1}}
 	\hfill
 	\subfigure[]{
-		\includegraphics[width=0.3\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-pe}
+		\includegraphics[width=0.4\linewidth]{chapters/chapter-3/figs/SMASH-rec-coils-pe}
 		\label{subfig:smash-rec-coils-pe}}
 	\end{RTLcopyrightBox}
-	\removevspace
-	\caption{}
+	\removevspace[2.5]
+	\caption{روش \lr{SMASH}}
 \end{figure}
 %	doi = {10.1017/9781107706958},
+
+
+
+
+که در آن رابطه، $\Delta k_y = \frac{2\pi}{\lrtext{FOV}}$
+می‌باشد و $k$ نیز بین 1 تا $N_c$ تغییر می‌کند.
+حال برای سیگنال سیم پیچ $k$اُم را می‌نویسیم
+
+
+\removevspace
+\begin{equation}
+	S_k(k_x, k_y) = \iint \rho(x,y) . C(x,y) . \exp(\frac{-t}{T_2^*}) . \exp(i2\pi x k_x) .\exp(i2\pi y k_y) . \mathrm{d}x \mathrm{d}y
+\end{equation}
+
+این رابطه مشابه رابطه‌ی \ref{eq:rel-dft-kspace}
+است اما در آن جمله‌ی $C(x,y)$ نیز در نظر گرفته شده است. اگر این سیگنال ها را با ضرایب  $n_k^{(m)}$
+با یکدیگر ترکیب کنیم، خواهیم داشت:
+
+
+\removevspace
+\begin{equation}
+\begin{aligned}
+	\sum_{k=1}^{N_c} n_k^{(m)} S_k(k_x, k_y) =&  \iint  \rho(x,y) . \left(n_k^{(m)}  \sum_{k=1}^{N_c} C(x,y) \right) . \exp(\frac{-t}{T_2^*}) \\
+	&\qquad \exp(i2\pi x k_x) . \exp(i2\pi y k_y) . \mathrm{d}x \mathrm{d}y \\
+	 =& \iint  \rho(x,y) . C_m^{\lrtext{COMP}} . \exp(\frac{-t}{T_2^*}) .\exp(i2\pi x k_x) . \exp(i2\pi y k_y) . \mathrm{d}x \mathrm{d}y 
+\end{aligned}
+\end{equation}
+
+
+در صورتی که این رابطه را با رابطه ی \ref{eq:Ccomp}
+ادغام کنیم، داریم:
+
+
+
+
+\removevspace
+\begin{equation}
+	\begin{aligned}
+		\sum_{k=1}^{N_c} n_k^{(m)} S_k(k_x, k_y) \cong& \iint  \rho(x,y) . \exp(\frac{-t}{T_2^*}) \\
+		&\qquad e^{i2\pi x k_x} . e^{i2\pi y (k_y + m\Delta k_y)} . \mathrm{d}x \mathrm{d}y \\
+		=&\ S^{\lrtext{COMP}}(k_x, k_y + m \Delta k_y)
+	\end{aligned}
+\end{equation}
+
+
+در حقیقت در روش \lr{SMASH} نشان داده شده است که این ترکیب خطی از سیگنال های سیم‌پیچ‌های مختلف می‌تواند به وطر مجازی داده های \kspace 
+را یک شیفت فرکانسی در جهت کدکردن فاز دهد و به شدت به تنظیمات سیم‌پیچ های مختلف وابسته است تا بتواند هارمونیک مکانی مطلوب را تولید کند.
+
 
 
 
