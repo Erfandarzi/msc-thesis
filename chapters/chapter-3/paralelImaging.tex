@@ -533,17 +533,154 @@ $n_A \le R \le N_c$
 
 
 
+\FloatBarrier
+\subsection{معرفی روش های خود تنظیم}
+مشکل روش هایی مثل \lr{SENSE}
+و \lr{SMASH}
+این است که به اطلاعات دقیقی از حساسیت سیم‌پیچ های مخلف احتیاج دارند که از بیماری به بیمار دیگر متفاوت است و حتی اگر بیمار جابجا نیز شود این حساسیت تغییر می‌کند. برای بدست آوردن این حساسیت ابتدا و پیش از اسکن یک تصویر با رزولوشن پایین از شئ می‌گیرند و از آن به عنوان حساسیت استفاده می‌کنند. این اسکن مقدماتی حدود 20 ثانیه ای به طول می‌انجامد و به تعداد کمی از خطوط کد کردن فاز اما با فاصله های یکسان نسبت به اسکن نهایی در میانه‌ی \kspace احتیاج دارد و این اسکن مقدماتی برای هر تعداد اسکن دیگر اما با شرایط یکسان می‌توان بکار برد. این خطوط اضافه \textit{سیگنال تنظیم}
+\LTRfootnote{Calibration Signal}
+شناخته می‌شوند.
+
+در برخی دیگر از روش ها موسوم به \textit{تکنیک خود تنظیم}
+\LTRfootnote{self-calibrating technique}
+بجای یک اسکن مقدماتی در حین همان اسکن نهایی، تعدادی از خطوط کدکردن فاز در حوالی مرکز \kspace را اخذ می‌کند. این خطوط اضافه،
+\textit{سیگنال خود تنظیم}\LTRfootnote{AutoCalibration Signal}(\lr{ACS})
+نام دارند که در روش های 
+\lr{mSENSE}، \lr{AUTO-SMASH} و \lr{VD-AUTO-SMASH}
+به کار رفته اند.
+
+
+
+
+\begin{figure}[t!]
+	\centering
+	\begin{RTLcopyrightBox}{\linewidth}{\doiSource{10.1017/9781107706958}}
+		%	\hfill
+		\subfigure[]{
+			\includegraphics[width=0.27\linewidth]{chapters/chapter-3/figs/kspace-SMASH-scheme}
+			\label{subfig:kspace-smash-scheme}}
+		%	\hfill
+		\subfigure[]{
+			\includegraphics[width=0.27\linewidth]{chapters/chapter-3/figs/kspace-SMASH-AUTO-scheme}
+			\label{subfig:kspace-smash-auto-scheme}}
+		%	\hfill
+		\subfigure[]{
+			\includegraphics[width=0.27\linewidth]{chapters/chapter-3/figs/kspace-SMASH-AUTO-VD-scheme}
+			\label{subfig:kspace-smash-auto-vd-scheme}}
+		\subfigure{
+			\includegraphics[width=0.1\linewidth]{chapters/chapter-3/figs/kspace-SMASH-help-scheme}
+			\label{subfig:kspace-smash-help-scheme}}
+	\end{RTLcopyrightBox}
+	\removevspace[3]
+	\caption{}
+\end{figure}
+
+
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-3/figs/kspace-mSENSE-scheme}
+	}{\doiSource{10.1017/9781107706958}}
+	\removevspace[1]
+	\caption{روش خودتنظیم \lr{mSENSE}}
+	\label{fig:kspace-mSENSE-scheme}
+\end{figure}
+
+
+
+
+روش \lr{mSENSE}
+\LTRfootnote{modified-SENSE}
+ورژن خود تنظیم الگوریتم \lr{SENSE}
+است. شکل \ref{fig:kspace-mSENSE-scheme}
+این روش را به تصویر می‌کشد. مشابه \lr{SENSE}، روش \lr{SMASH}
+نیز نسخه خود تنظیم دارد. دو روش \lr{AUTO-SMASH}
+(در سال 1998)
+و \lr{VD-AUTO-SMASH}
+(در سال 2001)
+به این منظور طراحی شده اند. در روش \lr{AUTO-SMASH} (شکل \ref{subfig:kspace-smash-auto-scheme})، به ازای فاکتور شتاب $R$ به تعداد $R-1$ خط \lr{ACS}
+دریافت می‌شود. بخاطر وجود نویز در این روش نقشه حساسیت سیم‌پیچ ها با خطا تخمین زده میشود که این خطا به شکل کمی اختلاط در تصویر باز سازی باقی می‌ماند. در روش \lr{AUTO-SMASH} با چگالی متغیر یا همان \lr{VD-AUTO-SMASH}
+(شکل \ref{subfig:kspace-smash-auto-vd-scheme})، از تعداد \lr{ACS}
+های بیشتری و به طور متقارن نسبت به مرکز \kspace استفاده شده است اما همین مقادیر کم تاثیر زیادی در کاهش آرتفکت ها شده است و دقت بسیار خوبی را منجر می‌شود.
 
 \FloatBarrier
-\subsection{\lr{GRAPPA}}
-
+\subsection{\lr{GRAPPA} و \lr{ARC}}
+\textit{دریافت جزئی مواری خودتنظیم تعمیم داده شده}
 \LTRfootnote{Generalized Autocalibrating Partially Parallel Acquisitions}(\lr{GRAPPA})
-
+، نام روشی است که در سال 2002 معرفی شده است.
 \cite{GRAPPA-Griswold2002}
+ این روش نیز بر خلاف \lr{SENSE}
+ ، سعی می‌کند تا داده های از دست داده ی \kspace را بازسازی کند. از این رو این روش به اصطلاح در \textit{\kspace زیر نرخ نمونه داری شده}
+\LTRfootnote{Undersampled k-space}
+کار می‌کند در حالی که \lr{SENSE}، بر روی تصاویر اختلاطی فعالیت دارد.
+
+\begin{figure}
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.9\linewidth]{chapters/chapter-3/figs/kspace-SMASH-GRAPPA}
+	}{\doiSource{10.1097/01.rmr.0000136558.09801.dd}}
+	\removevspace[1]
+	\caption{}
+	\label{fig:kspace-smash-grappa}
+\end{figure}
+
+ نحوه نمونه برداری در روش \lr{GRAPPA}
+نیز مشابه \lr{VD-AUTO-SMASH}
+(شکل \ref{subfig:kspace-smash-auto-vd-scheme})
+می‌باشد. اما در بازسازی داده های از دست رفته به شکلی کاملا متفاوت عمل می‌کند. برای درک بهتر این موضوع شکل \ref{fig:kspace-smash-grappa}
+را در نظر بگیرید. در خانواده روش های \lr{SMASH}
+، با استفاده از یک ترکیب خطی بهینه، داده های از دست رفته در یک شیفت فرکانسی را بدست می‌آوریم. اما در روش \lr{GRAPPA}
+در آن ترکیب خطی از همسایگان بیشتری استفاده می‌کند که پاسخی روباست تر حاصل می‌شود.
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-3/figs/GRAPPA-image-kspace}
+	}{\doiSource{10.1002/jmri.23639}}
+	\removevspace[1]
+	\caption{}
+	\label{fig:grappa-image-kspace}
+\end{figure}
+
+برای دید بهتر، تصویر \ref{fig:grappa-image-kspace}
+را ملاحظه کنید. از آنجایی که حوزه تصویر، حساسیت در تصویر حقیقی شئ ضرب می‌شود، بنابراین در حوزه‌ی \kspace (که تبدیل فوریه ی حوزه تصویر محسوب می‌شود)
+به شکل عملگر کانوولوشن ظاهر می‌شود. بنابراین اطلاعات حساسیت سیم‌پیچ ها در درون حوزه‌ی \kspace با یکدیگر مخلوط شده است.
+بنابراین برخی از اطلاعات در مورد نقاط \kspace داده شده، همسایگان خود را نیز شامل می‌شود. بنابراین اطلاعات نقاط از دست رفته را می‌توان با ترکیبی از اطلاعات همسایگان آن نقاط بازیابی کرد.
+
+ 
+
+\begin{figure}[t!]
+	\centering
+	\copyrightbox[b]{
+		\includegraphics[width=0.7\linewidth]{chapters/chapter-3/figs/GRAPPA-scheme}
+	}{\doiSource{10.1002/jmri.23639}}
+	\removevspace[1]
+	\caption{}
+	\label{fig:grappa-scheme}
+\end{figure}
+
+این \textit{الگوی مخلوط شده}
+\LTRfootnote{Smearing pattern}
+در درون بخش \lr{ACS}
+نیز وجود دارد بنابراین می‌توان مانند شکل \ref{fig:grappa-scheme}
+یک کرنل برای محاسبه‌ی وزن ها در نظر گرفت که از اطلاعات سیم‌پیچ های مختلف در درون یک همسایگی در آن نقاط استفاده می‌کند و  سپس با استفاده از آن \lr{ACS}
+ها، وزن های کرنل مورد استفاده در \lr{GRAPPA}
+را بدست آورد. یک نکته مهم این است که خطوط \lr{ACS}
+می‌تواند با استفاده از یک روش با کانتراست متفاوت جهت سرعت بخشیدن به دریافت اطلاعات این بخش استفاده کرد.
 
 
+زمانی که وزن های کرنل محاسبه شوند، از آن کرنل در درون \kspace زیر نرخ نمونه برداری شده، استفاده می‌شود تا خطوط از دست رفته کد کردن فاز را پر کند. این کار برای تک تک سیم پیچ ها تکرار می‌شود و با یک تبدیل فوریه،‌ به حوزه تصویر منتقل می‌شود. پس از آن باید تصویر بدست آمده بایکدیگر ترکیب شوند که این کار نیز با استفاده از همان روش \textit{مجموع مربعات}
+که در بازسازی معمولی مورد استفاده قرار می‌گیرد، انجام می‌پذیرد.
+\cite{ParallelMRImaging2012}
+روش \lr{GRAPPA}
+به صورت گسترده در کاربردهای کلینیکی استفاده می‌شود و نسبت به تغییرات حساسیت های سیم پیچ ها مختلف مقاوم است.
 
-
+روش \lr{ARC}
+\LTRfootnote{Auto-calibrating Reconstruction}
+نیز یک پیاده سازی از \lr{GRAPPA}
+در سه بعد است که در درون اسکنر های \lr{GE}
+مورد استفاده قرار گرفته است.
 
 
 
