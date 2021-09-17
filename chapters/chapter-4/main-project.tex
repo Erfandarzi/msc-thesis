@@ -64,6 +64,20 @@ pip install -r requirements.txt
 آن می‌باشد که از آن جهت دانلود این دیتاست استفاده خواهیم کرد. همچنین در آن \lr{trajectory} و \lr{Parallel Imaging Factor}
 به ترتیب نوع تراژکتوری اخذ داده(در اینجا کارتزین) و میزان نمونه برداری زیر نرخ (در اینجا نمونه برداری کامل انجام شده است چرا که این پارامتر یک می‌باشد.) را نشان می‌دهد.
 
+برای استخراج جداولی مانند شکل \ref{fig:mridata-org-fields} به شکل یک لیستی از دیتافریم های کتابخانه \texttt{pandas} از کد زیر استفاده شده است:
+
+\begin{latin}
+\begin{lstlisting}
+import pandas as pd
+def mridataorg_to_pandas(url= 'http://mridata.org/list?project=NYU%20machine%20learning%20data'):
+	tables = pd.read_html(url)
+	tables = pd.concat([t.set_index(0).T for t in tables if (len(t.columns)==2 and any(t.iloc[:,0].str.contains('UUID')))])
+	return tables
+\end{lstlisting}
+\end{latin}
+
+
+
 \subsubsection{نحوه دانلود و خواندن داده‌ها}
 
 برای دانلود و استفاده از دادگان این سایت در پایتون بهترین کار این است که از کد زیر استفاده کرد.
@@ -71,9 +85,10 @@ pip install -r requirements.txt
 
 \begin{latin}
 \begin{lstlisting}
-import mridata
+import mridata, pathlib
 uuid = 'cc52722b-8649-45b0-a1ea-8727c1687ad5'
 dir_output = 'data'
+pathlib.Path(dir_output).mkdir(parents=True, exist_ok=True)
 mridata.download(uuid, folder=dir_output)
 \end{lstlisting}
 \end{latin}
