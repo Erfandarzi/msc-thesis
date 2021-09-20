@@ -175,8 +175,9 @@ import ismrmrd, ismrmrd.xsd
 import numpy as np
 from ismrmrdtools import show, transform
 
+remove_oversampling_x = True
 # Initialiaze a storage array
-all_data = np.zeros((nreps, ncontrasts, nslices, ncoils, eNz, eNy, rNx), dtype=np.complex64)
+all_data = np.zeros((nreps, ncontrasts, nslices, ncoils, eNz, eNy, rNx if remove_oversampling_x else eNx),  dtype=np.complex64)
 
 # Loop through the rest of the acquisitions and stuff
 for acqnum in range(firstacq,dset.number_of_acquisitions()):
@@ -215,7 +216,8 @@ import matplotlib.pyplot as plt
 from ismrmrdtools import show, transform
 
 # Initialiaze a storage array
-all_data = np.zeros((nreps, ncontrasts, nslices, ncoils, eNz, eNy, eNx), dtype=np.complex64)
+# Reconstruct images
+images = np.zeros((nreps, ncontrasts, nslices, eNz, eNy, rNx if remove_oversampling_x else eNx),  dtype=np.float32)
 fig = plt.figure()
 plt.xlim([0,1]); plt.ylim([0,1]);
 
@@ -270,7 +272,21 @@ show.imshow(np.squeeze(images[0,0,0,:,:,:]))
 
 \begin{figure}[t!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{chapters/chapter-4/figs/result-36-plots-data-load}
+	\includegraphics[width=0.6\linewidth]{chapters/chapter-4/figs/result-36-plots-data-load}
 	\caption{تصاویر بازسازی شده از داده خام و نمونه برداری شده کامل}
 	\label{fig:result-36-plots-data-load}
 \end{figure}
+
+
+\begin{figure}[t!]
+	\centering
+	\subfigure[تصاویر بازسازی شده همراه با نمونه برداری بیش از حد]{
+		\includegraphics[height=0.43\linewidth]{chapters/chapter-4/figs/413469fd-9354-400c-88e3-b29e7c711a05-withOversampling}
+		\label{subfig:413469fd-9354-400c-88e3-b29e7c711a05-with-oversampling}}
+	\hfill
+	\subfigure[تصاویر بازسازی شده همراه با حذف نمونه برداری بیش از حد]{
+		\includegraphics[height=0.43\linewidth]{chapters/chapter-4/figs/413469fd-9354-400c-88e3-b29e7c711a05-withoutOversampling}
+		\label{subfig:413469fd-9354-400c-88e3-b29e7c711a05-without-oversampling}}
+	\caption{}
+\end{figure}
+
